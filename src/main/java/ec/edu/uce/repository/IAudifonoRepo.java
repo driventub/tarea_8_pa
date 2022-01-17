@@ -5,6 +5,6 @@ import ec.edu.uce.modelo.Audifono;
 public interface IAudifonoRepo {
 	void insertarAudifono(Audifono p);
 	Audifono buscarAudifono(Integer id);
-	void actualizarAudifono(Audifono p);
+	void actualizarAudifono(Audifono p,Integer i);
 	void borrarAudifono(Integer id);
 }

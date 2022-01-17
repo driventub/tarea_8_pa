@@ -5,6 +5,6 @@ import ec.edu.uce.modelo.Carro;
 public interface ICarroRepo {
 	void insertarCarro(Carro p);
 	Carro buscarCarro(Integer id);
-	void actualizarCarro(Carro p);
+	void actualizarCarro(Carro p,Integer i);
 	void borrarCarro(Integer id);
 }

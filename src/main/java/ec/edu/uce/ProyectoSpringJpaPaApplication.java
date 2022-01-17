@@ -4,41 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import ec.edu.uce.modelo.*;
 import ec.edu.uce.service.*;
 
 @SpringBootApplication
+
 public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 	@Autowired
-	private IAudifonoService audifonoService;
-	
-	@Autowired
-	private ICamaraService camaraService;
-	
-	@Autowired
-	private ICarroService carroService;
-	
-	@Autowired
-	private IGuitarraService guitarraService;
-	
-	@Autowired
-	private ILibroService libroService;
-	
-	@Autowired
-	private IMonitorService monitorService;
-	
-	@Autowired
-	private IProductoService productoService;
-	
-	@Autowired
-	private ISkateLlantaService skateLlantaService;
-	
-	@Autowired
-	private ITecladoService tecladoService;
-	
-	@Autowired
-	private ITelefonoService telefonoService;
+	private IGestorService gestor;
 	
 	
 	
@@ -58,6 +35,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 ////	
 //		
 ////		Conjunto 1 de datos
+		/*
 		Audifono a = new Audifono();
 		a.setId(1);
 		a.setTipo("Wireless");
@@ -65,7 +43,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		a.setMarca("JLab");
 		a.setRuidoCancel(false);
 		
-		this.audifonoService.insertarAudifonoNuevo(a);
+		
 		
 		Camara b = new Camara();
 		b.setId(1);
@@ -74,7 +52,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		b.setMarca("Samsung");
 		b.setHdr(true);
 		
-		this.camaraService.insertarCamaraNuevo(b);
+		
 		
 		Carro c = new Carro();
 		c.setId(1);
@@ -83,7 +61,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		c.setModelo("Corolla");
 		c.setMarca("Toyota");
 		
-		this.carroService.insertarCarroNuevo(c);
+		
 		
 		Guitarra d = new Guitarra();
 		d.setId(1);
@@ -92,7 +70,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		d.setTipo("Acustica");
 		d.setMarca("Fender");
 		
-		this.guitarraService.insertarGuitarraNuevo(d);
+		
 		
 		Libro l = new Libro();
 		l.setId(1);
@@ -101,7 +79,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		l.setEditorial("Dilipa");
 		l.setAutor("Dimitri");
 		
-		this.libroService.insertarLibroNuevo(l);
+		
 		
 		Monitor m = new Monitor();
 		m.setId(1);
@@ -110,7 +88,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		m.setTipo("TN");
 		m.setResolucion("4K");
 		
-		this.monitorService.insertarMonitorNuevo(m);
+		
 		
 		Producto p = new Producto();
 		p.setId(1);
@@ -119,7 +97,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		p.setTipo("Limpieza");
 		p.setMarca("H&S");
 		
-		this.productoService.insertarProductoNuevo(p);	
+			
 	
 		SkateLlanta s = new SkateLlanta();
 		s.setId(1);
@@ -128,7 +106,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		s.setMarca("Mini Logo");
 		s.setColor("Blanco");
 		
-		this.skateLlantaService.insertarSkateLlantaNuevo(s);
+		
 		
 		Teclado t = new Teclado();
 		t.setId(1);
@@ -138,7 +116,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		t.setTipo("Tactil");
 		t.setLubed(true);
 		
-		this.tecladoService.insertarTecladoNuevo(t);
+		
 		
 		Telefono z = new Telefono();
 		z.setId(1);
@@ -147,7 +125,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		z.setSistema("Android 11");
 		z.setNfc(false);
 		
-		this.telefonoService.insertarTelefonoNuevo(z);
+		
 
 		
 //		Conjunto 2 de datos
@@ -158,7 +136,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		a2.setMarca("Beats");
 		a2.setRuidoCancel(true);
 		
-		this.audifonoService.insertarAudifonoNuevo(a2);
+		
 		
 		Camara b2 = new Camara();
 		b2.setId(2);
@@ -167,7 +145,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		b2.setMarca("Sony");
 		b2.setHdr(true);
 		
-		this.camaraService.insertarCamaraNuevo(b2);
+		
 		
 		Carro c2 = new Carro();
 		c2.setId(2);
@@ -176,7 +154,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		c2.setModelo("Corolla");
 		c2.setMarca("Toyota");
 		
-		this.carroService.insertarCarroNuevo(c2);
+		
 		
 		Guitarra d2 = new Guitarra();
 		d2.setId(2);
@@ -185,7 +163,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		d2.setTipo("Electrica");
 		d2.setMarca("Gibson");
 		
-		this.guitarraService.insertarGuitarraNuevo(d2);
+		
 		
 		Libro l2 = new Libro();
 		l2.setId(2);
@@ -194,7 +172,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		l2.setEditorial("Pearson");
 		l2.setAutor("Grisham");
 		
-		this.libroService.insertarLibroNuevo(l2);
+		
 		
 		Monitor m2 = new Monitor();
 		m2.setId(2);
@@ -203,7 +181,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		m2.setTipo("IPS");
 		m2.setResolucion("1080p");
 		
-		this.monitorService.insertarMonitorNuevo(m2);
+		
 		
 		Producto p2 = new Producto();
 		p2.setId(2);
@@ -212,7 +190,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		p2.setTipo("Limpieza");
 		p2.setMarca("Bic");
 		
-		this.productoService.insertarProductoNuevo(p2);	
+			
 	
 		SkateLlanta s2 = new SkateLlanta();
 		s2.setId(2);
@@ -221,7 +199,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		s2.setMarca("Splitfire");
 		s2.setColor("Rojo");
 		
-		this.skateLlantaService.insertarSkateLlantaNuevo(s2);
+		
 		
 		Teclado t2 = new Teclado();
 		t2.setId(2);
@@ -231,7 +209,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		t2.setTipo("Linear");
 		t2.setLubed(false);
 		
-		this.tecladoService.insertarTecladoNuevo(t2);
+		
 		
 		Telefono z2 = new Telefono();
 		z2.setId(2);
@@ -240,7 +218,112 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		z2.setSistema("Android 11");
 		z2.setNfc(false);
 		
-		this.telefonoService.insertarTelefonoNuevo(z2);
+		
+		
+		this.gestor.registrarNuevaConsulta(a,b,c,d,l,m,p,s,t,z);
+		
+		*/
+		
+//		Seccion Actualizar	
+		Audifono a = new Audifono();
+		a.setId(1);
+		a.setTipo("Wireless");
+		a.setColor("Rojo");
+		a.setMarca("JLab");
+		a.setRuidoCancel(false);
+		
+		
+		
+		Camara b = new Camara();
+		b.setId(1);
+		b.setMegaPixel(16);
+		b.setApertura(10);
+		b.setMarca("Panasonic");
+		b.setHdr(true);
+		
+		
+		
+		Carro c = new Carro();
+		c.setId(1);
+		c.setAnho(2004);
+		c.setPrecio(7000);
+		c.setModelo("Corolla");
+		c.setMarca("Toyota");
+		
+		
+		
+		Guitarra d = new Guitarra();
+		d.setId(1);
+		d.setPrecio(300);
+		d.setTipoCuerda("Nylon");
+		d.setTipo("Acustica");
+		d.setMarca("Fender");
+		
+		
+		
+		Libro l = new Libro();
+		l.setId(1);
+		l.setAnho(1970);
+		l.setNombre("Metro 2033");
+		l.setEditorial("Dilipa");
+		l.setAutor("Dimitri");
+		
+		
+		
+		Monitor m = new Monitor();
+		m.setId(1);
+		m.setHercios(144);
+		m.setTamanho(20);
+		m.setTipo("TN");
+		m.setResolucion("4K");
+		
+		
+		
+		Producto p = new Producto();
+		p.setId(1);
+		p.setPrecio(2);
+		p.setNombre("Suavizante");
+		p.setTipo("Limpieza");
+		p.setMarca("H&S");
+		
+			
+	
+		SkateLlanta s = new SkateLlanta();
+		s.setId(1);
+		s.setDiametro(50);
+		s.setDureza("70a");
+		s.setMarca("Mini Logo");
+		s.setColor("Blanco");
+		
+		
+		
+		Teclado t = new Teclado();
+		t.setId(1);
+		t.setNumTeclas(75);
+		t.setSwitche("Zealious V1");
+		t.setKeycap("ABS");
+		t.setTipo("Tactil");
+		t.setLubed(true);
+		
+		
+		
+		Telefono z = new Telefono();
+		z.setId(1);
+		z.setNombre("Moto E4");
+		z.setMarca("Lenovo");
+		z.setSistema("Android 7.1");
+		z.setNfc(false);
+		
+		
+		this.gestor.actualizarNuevaConsulta(a,b,c,d,l,m,p,s,t,z,1);
+		
+//		Seccion buscar, aqui hay problema
+		this.gestor.buscarNuevaConsulta(1);
+		
+		
+//		Seccion borrar
+//		No voy a ejecutarlo, dado que me va a borrar todos los 1
+//		this.gestor.borrarNuevaConsulta(1);
 
 	}
 
