@@ -4,12 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import ec.edu.uce.modelo.*;
-import ec.edu.uce.service.*;
+import ec.edu.uce.modelo.Audifono;
+import ec.edu.uce.modelo.Camara;
+import ec.edu.uce.modelo.Carro;
+import ec.edu.uce.modelo.Guitarra;
+import ec.edu.uce.modelo.Libro;
+import ec.edu.uce.modelo.Monitor;
+import ec.edu.uce.modelo.Producto;
+import ec.edu.uce.modelo.SkateLlanta;
+import ec.edu.uce.modelo.Teclado;
+import ec.edu.uce.modelo.Telefono;
+import ec.edu.uce.modelo.jpa.Guardia;
+import ec.edu.uce.service.IGestorService;
+import ec.edu.uce.service.jpa.IGuardiaService;
 
 @SpringBootApplication
 
@@ -17,6 +25,8 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 	@Autowired
 	private IGestorService gestor;
 	
+	@Autowired
+	private IGuardiaService guardia;
 	
 	
 	public static void main(String[] args) {
@@ -25,6 +35,8 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+	/*	
 ////		Audifono a = new Audifono();
 ////		a.setId(4);
 ////		a.setNombre("asdfasdf");
@@ -222,7 +234,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		
 		this.gestor.registrarNuevaConsulta(a,b,c,d,l,m,p,s,t,z);
 		
-		*/
+		
 		
 //		Seccion Actualizar	
 		Audifono a = new Audifono();
@@ -318,12 +330,20 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		this.gestor.actualizarNuevaConsulta(a,b,c,d,l,m,p,s,t,z,1);
 		
 //		Seccion buscar, aqui hay problema
-		this.gestor.buscarNuevaConsulta(1);
+//		this.gestor.buscarNuevaConsulta(1);
 		
 		
 //		Seccion borrar
 //		No voy a ejecutarlo, dado que me va a borrar todos los 1
 //		this.gestor.borrarNuevaConsulta(1);
+		
+		*/
+		Guardia g = new Guardia();
+		
+		g.setNombre("Fulano");
+		g.setApellido("DeTroya");
+		g.setEdificio("Naciones Unidas");
+		this.guardia.guardar(g);
 
 	}
 
