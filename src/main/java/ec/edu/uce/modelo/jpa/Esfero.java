@@ -1,0 +1,55 @@
+package ec.edu.uce.modelo.jpa;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "esfero")
+public class Esfero {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
+	private Integer id;
+	
+	@Column(name = "tipo")
+	private String tipo;
+	
+	@Column(name = "color")
+	private String color;
+
+//	Set y Get
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	@Override
+	public String toString() {
+		return "Esfero [id=" + id + ", tipo=" + tipo + ", color=" + color + "]";
+	}
+	
+	
+}

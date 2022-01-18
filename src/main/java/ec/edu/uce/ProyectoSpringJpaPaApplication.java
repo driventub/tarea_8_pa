@@ -1,32 +1,44 @@
 package ec.edu.uce;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ec.edu.uce.modelo.Audifono;
-import ec.edu.uce.modelo.Camara;
-import ec.edu.uce.modelo.Carro;
-import ec.edu.uce.modelo.Guitarra;
-import ec.edu.uce.modelo.Libro;
-import ec.edu.uce.modelo.Monitor;
-import ec.edu.uce.modelo.Producto;
-import ec.edu.uce.modelo.SkateLlanta;
-import ec.edu.uce.modelo.Teclado;
-import ec.edu.uce.modelo.Telefono;
-import ec.edu.uce.modelo.jpa.Guardia;
-import ec.edu.uce.service.IGestorService;
-import ec.edu.uce.service.jpa.IGuardiaService;
+import ec.edu.uce.modelo.jpa.Balon;
+import ec.edu.uce.modelo.jpa.Esfero;
+import ec.edu.uce.modelo.jpa.FuentePoder;
+import ec.edu.uce.modelo.jpa.GotasOjo;
+import ec.edu.uce.modelo.jpa.Skate;
+import ec.edu.uce.service.jpa.IBalonService;
+import ec.edu.uce.service.jpa.IEsferoService;
+import ec.edu.uce.service.jpa.IFuentePoderService;
+import ec.edu.uce.service.jpa.IGotasOjoService;
+import ec.edu.uce.service.jpa.ISkateService;
+
+
 
 @SpringBootApplication
 
 public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
+
 	@Autowired
-	private IGestorService gestor;
+	private IFuentePoderService fuente;
 	
 	@Autowired
-	private IGuardiaService guardia;
+	private IGotasOjoService gotas;
+	
+	@Autowired
+	private ISkateService skate;
+	
+	@Autowired
+	private IEsferoService esfero;
+	
+	@Autowired
+	private IBalonService balon;
+	
 	
 	
 	public static void main(String[] args) {
@@ -338,12 +350,67 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 //		this.gestor.borrarNuevaConsulta(1);
 		
 		*/
-		Guardia g = new Guardia();
 		
-		g.setNombre("Fulano");
-		g.setApellido("DeTroya");
-		g.setEdificio("Naciones Unidas");
-		this.guardia.guardar(g);
+//		Tarea_10
+		
+		Balon b = new Balon();
+		Esfero e = new Esfero();
+		FuentePoder f = new FuentePoder();
+		GotasOjo g = new GotasOjo();
+		Skate s = new Skate();
+		
+//		Insercion		
+		b.setMarca("Umbro");
+		b.setTamanho(5);
+		
+		e.setColor("Amarillo");
+		e.setTipo("Fina");
+		
+		f.setTipo("Modular");
+		f.setVoltaje(500);
+		
+		g.setConcentracion(4);
+		g.setVolumen(10);
+		
+		s.setPrecio(new BigDecimal("80.4"));
+		s.setMarca("SW");
+		
+
+		
+//		this.balon.guardar(b);
+//		this.esfero.guardar(e);
+//		this.fuente.guardar(f);
+//		this.gotas.guardar(g);
+//		this.skate.guardar(s);
+		
+//		actualizar
+		b.setId(2);
+		b.setMarca("Adidas");
+		b.setTamanho(4);
+		
+		e.setId(3);
+		e.setColor("Rojo");
+		e.setTipo("Grueso");
+		
+		f.setId(4);
+		f.setTipo("Modular");
+		f.setVoltaje(1000);
+		
+		g.setId(5);
+		g.setConcentracion(4);
+		g.setVolumen(11);
+		
+		s.setId(6);
+		s.setPrecio(new BigDecimal("101.4"));
+		s.setMarca("Walmart");
+		
+		this.balon.actualizar(b);
+		this.esfero.actualizar(e);
+		this.fuente.actualizar(f);
+		this.gotas.actualizar(g);
+		this.skate.actualizar(s);
+		
+		
 
 	}
 

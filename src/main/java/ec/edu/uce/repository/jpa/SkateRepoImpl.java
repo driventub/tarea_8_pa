@@ -6,35 +6,35 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import ec.edu.uce.modelo.jpa.Guardia;
+import ec.edu.uce.modelo.jpa.Skate;
 
 @Repository
 @Transactional
-public class GuardiaRepoImpl implements IGuardiaRepo{
-	
+public class SkateRepoImpl implements ISkateRepo{
+
 	@PersistenceContext
-	private EntityManager entityManager;
+	private EntityManager e;
 	
 	@Override
-	public void insertarGuardia(Guardia p) {
-		this.entityManager.persist(p);
+	public void insertarSkate(Skate p) {
+		this.e.persist(p);
 		
 	}
 
 	@Override
-	public Guardia buscarGuardia(Integer id) {
+	public Skate buscarSkate(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void actualizarGuardiaPorId(Guardia p) {
-		// TODO Auto-generated method stub
+	public void actualizarSkatePorId(Skate p) {
+		this.e.merge(p);
 		
 	}
 
 	@Override
-	public void borrarGuardiaPorId(Integer id) {
+	public void borrarSkatePorId(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}
