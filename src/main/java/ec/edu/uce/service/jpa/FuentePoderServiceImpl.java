@@ -4,36 +4,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.jpa.FuentePoder;
+
 import ec.edu.uce.repository.jpa.IFuentePoderRepo;
+
 
 @Service
 public class FuentePoderServiceImpl implements IFuentePoderService{
 
 	@Autowired
-	private IFuentePoderRepo fuente;
+	private IFuentePoderRepo b;
 	
 	@Override
 	public void guardar(FuentePoder g) {
-		this.fuente.insertarFuentePoder(g);
+		this.b.insertarFuentePoder(g);
 		
 	}
 
 	@Override
 	public void actualizar(FuentePoder g) {
-		this.fuente.actualizarFuentePoderPorId(g);
+		this.b.actualizarFuentePoderPorId(g);
 		
 	}
 
 	@Override
 	public FuentePoder buscar(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.b.buscarFuentePoderPorId(i);
 	}
 
 	@Override
 	public void eliminar(Integer i) {
-		// TODO Auto-generated method stub
+		this.b.borrarFuentePoderPorId(i);
 		
 	}
 
+	@Override
+	public FuentePoder buscarVoltaje(Integer i) {
+		
+		return this.b.buscarFuentePoderPorVoltaje(i);
+	}
+	
 }

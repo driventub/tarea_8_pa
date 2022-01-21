@@ -1,5 +1,7 @@
 package ec.edu.uce.service.jpa;
 
+import java.math.BigDecimal;
+
 import ec.edu.uce.modelo.jpa.Skate;
 
 public interface ISkateService {
@@ -7,4 +9,5 @@ public interface ISkateService {
 	void actualizar(Skate g);
 	Skate buscar(Integer i);
 	void eliminar(Integer i);
+	Skate buscarPrecio(BigDecimal precio);
 }

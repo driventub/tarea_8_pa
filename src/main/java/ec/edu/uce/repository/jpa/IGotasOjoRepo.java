@@ -5,10 +5,12 @@ import ec.edu.uce.modelo.jpa.GotasOjo;
 public interface IGotasOjoRepo {
 	void insertarGotasOjo(GotasOjo p);
 
-	GotasOjo buscarGotasOjo(Integer id);
+	GotasOjo buscarGotasOjoPorId(Integer id);
 
 	void actualizarGotasOjoPorId(GotasOjo p);
 
 	void borrarGotasOjoPorId(Integer id);
+	
+	GotasOjo buscarGotasOjoPorVolumen(Integer v);
 
 }

@@ -7,4 +7,5 @@ public interface IBalonService {
 	void actualizar(Balon g);
 	Balon buscar(Integer i);
 	void eliminar(Integer i);
+	Balon buscarMarca(String marca);
 }

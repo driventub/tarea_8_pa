@@ -5,10 +5,11 @@ import ec.edu.uce.modelo.jpa.Esfero;
 public interface IEsferoRepo {
 	void insertarEsfero(Esfero p);
 
-	Esfero buscarEsfero(Integer id);
+	Esfero buscarEsferoPorId(Integer id);
 
 	void actualizarEsferoPorId(Esfero p);
 
 	void borrarEsferoPorId(Integer id);
 
+	Esfero buscarEsferoPorColor(String color);
 }

@@ -7,4 +7,5 @@ public interface IGotasOjoService {
 	void actualizar(GotasOjo g);
 	GotasOjo buscar(Integer i);
 	void eliminar(Integer i);
+	GotasOjo buscarVolumen(Integer i);
 }

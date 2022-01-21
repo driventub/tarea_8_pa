@@ -26,14 +26,20 @@ public class BalonServiceImpl implements IBalonService{
 
 	@Override
 	public Balon buscar(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.b.buscarBalonPorId(i);
 	}
 
 	@Override
 	public void eliminar(Integer i) {
-		// TODO Auto-generated method stub
+		this.b.borrarBalonPorId(i);
 		
+	}
+
+	@Override
+	public Balon buscarMarca(String marca) {
+		
+		return this.b.buscarBalonPorMarca(marca);
 	}
 	
 }

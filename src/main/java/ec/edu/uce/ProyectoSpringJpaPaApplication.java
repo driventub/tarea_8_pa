@@ -360,23 +360,23 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		Skate s = new Skate();
 		
 //		Insercion		
-		b.setMarca("Umbro");
-		b.setTamanho(5);
-		
-		e.setColor("Amarillo");
-		e.setTipo("Fina");
-		
-		f.setTipo("Modular");
-		f.setVoltaje(500);
-		
-		g.setConcentracion(4);
-		g.setVolumen(10);
-		
-		s.setPrecio(new BigDecimal("80.4"));
-		s.setMarca("SW");
-		
-
-		
+//		b.setMarca("Nike");
+//		b.setTamanho(6);
+//		
+//		e.setColor("Rojo");
+//		e.setTipo("Gruesa");
+//		
+//		f.setTipo("Semi-Modular");
+//		f.setVoltaje(700);
+//		
+//		g.setConcentracion(5);
+//		g.setVolumen(11);
+//		
+//		s.setPrecio(new BigDecimal("100.3"));
+//		s.setMarca("Splitfire");
+//		
+//
+//		
 //		this.balon.guardar(b);
 //		this.esfero.guardar(e);
 //		this.fuente.guardar(f);
@@ -384,31 +384,73 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 //		this.skate.guardar(s);
 		
 //		actualizar
-		b.setId(2);
-		b.setMarca("Adidas");
-		b.setTamanho(4);
 		
-		e.setId(3);
-		e.setColor("Rojo");
-		e.setTipo("Grueso");
+//		b.setId(3);
+//		b.setMarca("Adidas");
+//		b.setTamanho(4);
+//		
+//		e.setId(3);
+//		e.setColor("Azul");
+//		e.setTipo("Fina");
+//		
+//		f.setId(3);
+//		f.setTipo("No Modular");
+//		f.setVoltaje(30);
+//		
+//		g.setId(3);
+//		g.setConcentracion(4);
+//		g.setVolumen(9);
+//		
+//		s.setId(3);
+//		s.setPrecio(new BigDecimal("20.99"));
+//		s.setMarca("Walmart");
+//		
+//		this.balon.actualizar(b);
+//		this.esfero.actualizar(e);
+//		this.fuente.actualizar(f);
+//		this.gotas.actualizar(g);
+//		this.skate.actualizar(s);
 		
-		f.setId(4);
-		f.setTipo("Modular");
-		f.setVoltaje(1000);
+//		Buscar
+//		Balon bBuscar = this.balon.buscar(1);
+//		System.out.println(bBuscar);
+//		
+//		Esfero eBuscar =this.esfero.buscar(2);
+//		System.out.println(eBuscar);
+//		
+//		FuentePoder fBuscar = this.fuente.buscar(1);
+//		System.out.println(fBuscar);
+//		
+//		GotasOjo gBuscar = this.gotas.buscar(2);
+//		System.out.println(gBuscar);
+//		
+//		Skate sBuscar = this.skate.buscar(1);
+//		System.out.println(sBuscar);
 		
-		g.setId(5);
-		g.setConcentracion(4);
-		g.setVolumen(11);
 		
-		s.setId(6);
-		s.setPrecio(new BigDecimal("101.4"));
-		s.setMarca("Walmart");
+//		Buscar
+		Balon bBuscarMarca = this.balon.buscarMarca("Adidas");
+		System.out.println(bBuscarMarca);
 		
-		this.balon.actualizar(b);
-		this.esfero.actualizar(e);
-		this.fuente.actualizar(f);
-		this.gotas.actualizar(g);
-		this.skate.actualizar(s);
+		Esfero eBuscarColor =this.esfero.buscarColor("Azul");
+		System.out.println(eBuscarColor);
+		
+		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltaje(100);
+		System.out.println(fBuscarVoltaje);
+		
+		GotasOjo gBuscarVolumen = this.gotas.buscarVolumen(9);
+		System.out.println(gBuscarVolumen);
+		
+		Skate sBuscarPrecio = this.skate.buscarPrecio(new BigDecimal("30"));
+		System.out.println(sBuscarPrecio);
+		
+//		Borrar
+		
+		this.balon.eliminar(4);
+		this.esfero.eliminar(5);
+		this.fuente.eliminar(4);
+		this.gotas.eliminar(5);
+		this.skate.eliminar(4);
 		
 		
 

@@ -4,36 +4,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.jpa.Esfero;
+
 import ec.edu.uce.repository.jpa.IEsferoRepo;
+
 
 @Service
 public class EsferoServiceImpl implements IEsferoService {
 	
 	@Autowired
-	private IEsferoRepo e;
+	private IEsferoRepo b;
 	
 	@Override
 	public void guardar(Esfero g) {
-		this.e.insertarEsfero(g);
+		this.b.insertarEsfero(g);
 		
 	}
 
 	@Override
 	public void actualizar(Esfero g) {
-		this.e.actualizarEsferoPorId(g);
+		this.b.actualizarEsferoPorId(g);
 		
 	}
 
 	@Override
 	public Esfero buscar(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.b.buscarEsferoPorId(i);
 	}
 
 	@Override
 	public void eliminar(Integer i) {
-		// TODO Auto-generated method stub
+		this.b.borrarEsferoPorId(i);
 		
 	}
+
+	@Override
+	public Esfero buscarColor(String color) {
+		
+		return this.b.buscarEsferoPorColor(color);
+	}
+	
 
 }

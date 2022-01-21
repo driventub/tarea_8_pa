@@ -5,7 +5,9 @@ import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +15,8 @@ import javax.persistence.Table;
 public class Skate {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy= GenerationType.SEQUENCE, generator = "seq_skate")
+	@SequenceGenerator(name ="seq_skate",sequenceName="seq_skate",allocationSize = 1)
 	@Column(name = "id")
 	private Integer id;
 	

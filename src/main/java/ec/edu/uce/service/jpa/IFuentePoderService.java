@@ -7,4 +7,5 @@ public interface IFuentePoderService {
 	void actualizar(FuentePoder g);
 	FuentePoder buscar(Integer i);
 	void eliminar(Integer i);
+	FuentePoder buscarVoltaje(Integer i);
 }

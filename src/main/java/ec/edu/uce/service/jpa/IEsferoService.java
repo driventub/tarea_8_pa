@@ -7,4 +7,5 @@ public interface IEsferoService {
 	void actualizar(Esfero g);
 	Esfero buscar(Integer i);
 	void eliminar(Integer i);
+	Esfero buscarColor(String color);
 }

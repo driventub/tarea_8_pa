@@ -1,5 +1,7 @@
 package ec.edu.uce.service.jpa;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,30 +12,37 @@ import ec.edu.uce.repository.jpa.ISkateRepo;
 public class SkateServiceImpl implements ISkateService{
 	
 	@Autowired
-	private ISkateRepo skate;
+	private ISkateRepo b;
 	
 	@Override
 	public void guardar(Skate g) {
-		this.skate.insertarSkate(g);
+		this.b.insertarSkate(g);
 		
 	}
 
 	@Override
 	public void actualizar(Skate g) {
-		this.skate.actualizarSkatePorId(g);
+		this.b.actualizarSkatePorId(g);
 		
 	}
 
 	@Override
 	public Skate buscar(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.b.buscarSkatePorId(i);
 	}
 
 	@Override
 	public void eliminar(Integer i) {
-		// TODO Auto-generated method stub
+		this.b.borrarSkatePorId(i);
 		
 	}
+
+	@Override
+	public Skate buscarPrecio(BigDecimal precio) {
+		
+		return this.b.buscarSkatePorPrecio(precio);
+	}
+	
 
 }

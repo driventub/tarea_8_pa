@@ -4,36 +4,45 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.jpa.GotasOjo;
+
 import ec.edu.uce.repository.jpa.IGotasOjoRepo;
+
 
 @Service
 public class GotasOjoServiceImpl implements IGotasOjoService{
 
 	@Autowired
-	private IGotasOjoRepo gotas;
+	private IGotasOjoRepo b;
 	
 	@Override
 	public void guardar(GotasOjo g) {
-		this.gotas.insertarGotasOjo(g);
+		this.b.insertarGotasOjo(g);
 		
 	}
 
 	@Override
 	public void actualizar(GotasOjo g) {
-		this.gotas.actualizarGotasOjoPorId(g);
+		this.b.actualizarGotasOjoPorId(g);
 		
 	}
 
 	@Override
 	public GotasOjo buscar(Integer i) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.b.buscarGotasOjoPorId(i);
 	}
 
 	@Override
 	public void eliminar(Integer i) {
-		// TODO Auto-generated method stub
+		this.b.borrarGotasOjoPorId(i);
 		
 	}
+
+	@Override
+	public GotasOjo buscarVolumen(Integer i) {
+		
+		return this.b.buscarGotasOjoPorVolumen(i);
+	}
+	
 
 }
