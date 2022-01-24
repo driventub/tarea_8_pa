@@ -8,4 +8,6 @@ public interface IEsferoService {
 	Esfero buscar(Integer i);
 	void eliminar(Integer i);
 	Esfero buscarColor(String color);
+	Esfero buscarColorTyped(String color);
+	Esfero buscarColorNamed(String color);
 }

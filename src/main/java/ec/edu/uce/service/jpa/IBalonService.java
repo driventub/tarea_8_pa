@@ -8,4 +8,6 @@ public interface IBalonService {
 	Balon buscar(Integer i);
 	void eliminar(Integer i);
 	Balon buscarMarca(String marca);
+	Balon buscarMarcaTyped(String marca);
+	Balon buscarMarcaNamed(String marca);
 }

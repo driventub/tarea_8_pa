@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "fuente_poder")
+@NamedQuery(name="FuentePoder.buscarPorVoltaje", query="select g from FuentePoder g where g.voltaje<:valor")
 public class FuentePoder {
 	
 	@Id

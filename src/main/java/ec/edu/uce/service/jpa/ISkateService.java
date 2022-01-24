@@ -10,4 +10,6 @@ public interface ISkateService {
 	Skate buscar(Integer i);
 	void eliminar(Integer i);
 	Skate buscarPrecio(BigDecimal precio);
+	Skate buscarPrecioTyped(BigDecimal precio);
+	Skate buscarPrecioNamed(BigDecimal precio);
 }

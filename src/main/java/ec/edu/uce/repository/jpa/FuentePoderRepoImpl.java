@@ -3,9 +3,11 @@ package ec.edu.uce.repository.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
+
 
 import ec.edu.uce.modelo.jpa.FuentePoder;
 
@@ -49,6 +51,22 @@ public class FuentePoderRepoImpl implements IFuentePoderRepo{
 		FuentePoder miFuentePoder = (FuentePoder) miQuery.getSingleResult();
 		return miFuentePoder;
 		
+	}
+
+	@Override
+	public FuentePoder buscarFuentePoderPorVoltajeTyped(Integer voltaje) {
+		TypedQuery<FuentePoder> myTypedQuery = (TypedQuery<FuentePoder>) this.e.createQuery("select g from FuentePoder g where g.voltaje<:valor");
+		myTypedQuery.setParameter("valor",voltaje);
+		
+		return myTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public FuentePoder buscarFuentePoderPorVoltajeNamed(Integer voltaje) {
+		Query miQuery = this.e.createNamedQuery("FuentePoder.buscarPorVoltaje");
+		miQuery.setParameter("valor",voltaje);
+		
+		return (FuentePoder) miQuery.getSingleResult();
 	}
 
 }

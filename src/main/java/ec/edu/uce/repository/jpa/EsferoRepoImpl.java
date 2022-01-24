@@ -3,11 +3,13 @@ package ec.edu.uce.repository.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.jpa.Esfero;
+
 
 
 @Repository
@@ -49,6 +51,22 @@ public class EsferoRepoImpl implements IEsferoRepo{
 		Esfero miEsfero = (Esfero) miQuery.getSingleResult();
 		return miEsfero;
 		
+	}
+
+	@Override
+	public Esfero buscarEsferoPorColorTyped(String color) {
+		TypedQuery<Esfero> myTypedQuery = (TypedQuery<Esfero>) this.e.createQuery("select g from Esfero g where g.color=:valor");
+		myTypedQuery.setParameter("valor",color);
+		
+		return myTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public Esfero buscarEsferoPorColorNamed(String color) {
+		Query miQuery = this.e.createNamedQuery("Esfero.buscarPorColor");
+		miQuery.setParameter("valor",color);
+		
+		return (Esfero) miQuery.getSingleResult();
 	}
 
 }

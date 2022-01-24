@@ -3,10 +3,12 @@ package ec.edu.uce.repository.jpa;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import ec.edu.uce.modelo.jpa.Esfero;
 import ec.edu.uce.modelo.jpa.GotasOjo;
 
 
@@ -48,6 +50,22 @@ public class GotasOjoRepoImpl implements IGotasOjoRepo{
 		miQuery.setParameter("valor",v);
 		GotasOjo miGotasOjo = (GotasOjo) miQuery.getSingleResult();
 		return miGotasOjo;
+	}
+
+	@Override
+	public GotasOjo buscarGotasOjoPorVolumenTyped(Integer v) {
+		TypedQuery<GotasOjo> myTypedQuery = (TypedQuery<GotasOjo>) this.e.createQuery("select g from GotasOjo g where g.volumen=:valor");
+		myTypedQuery.setParameter("valor",v);
+		
+		return myTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public GotasOjo buscarGotasOjoPorVolumenNamed(Integer v) {
+		Query miQuery = this.e.createNamedQuery("GotasOjo.buscarPorVolumen");
+		miQuery.setParameter("valor",v);
+		
+		return (GotasOjo) miQuery.getSingleResult();
 	}
 	
 	

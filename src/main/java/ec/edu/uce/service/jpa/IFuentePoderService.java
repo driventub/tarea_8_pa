@@ -8,4 +8,6 @@ public interface IFuentePoderService {
 	FuentePoder buscar(Integer i);
 	void eliminar(Integer i);
 	FuentePoder buscarVoltaje(Integer i);
+	FuentePoder buscarVoltajeTyped(Integer i);
+	FuentePoder buscarVoltajeNamed(Integer i);
 }

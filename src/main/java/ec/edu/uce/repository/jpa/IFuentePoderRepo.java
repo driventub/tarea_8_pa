@@ -12,5 +12,7 @@ public interface IFuentePoderRepo {
 	void borrarFuentePoderPorId(Integer id);
 	
 	FuentePoder buscarFuentePoderPorVoltaje(Integer voltaje);
+	FuentePoder buscarFuentePoderPorVoltajeTyped(Integer voltaje);
+	FuentePoder buscarFuentePoderPorVoltajeNamed(Integer voltaje);
 
 }

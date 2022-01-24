@@ -12,6 +12,8 @@ public interface IBalonRepo {
 
 	void borrarBalonPorId(Integer id);
 	
-	Balon buscarBalonPorMarca(String marca);
+	Balon buscarBalonPorMarca(String marca); 
+	Balon buscarBalonPorMarcaTyped(String marca); 
+	Balon buscarBalonPorMarcaNamed(String marca); 
 
 }

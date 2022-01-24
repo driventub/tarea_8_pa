@@ -8,4 +8,6 @@ public interface IGotasOjoService {
 	GotasOjo buscar(Integer i);
 	void eliminar(Integer i);
 	GotasOjo buscarVolumen(Integer i);
+	GotasOjo buscarVolumenTyped(Integer i);
+	GotasOjo buscarVolumenNamed(Integer i);
 }

@@ -15,6 +15,8 @@ public interface ISkateRepo {
 	void borrarSkatePorId(Integer id);
 	
 	Skate buscarSkatePorPrecio(BigDecimal b);
+	Skate buscarSkatePorPrecioTyped(BigDecimal b);
+	Skate buscarSkatePorPrecioNamed(BigDecimal b);
 	
 
 }

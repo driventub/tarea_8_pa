@@ -2,6 +2,8 @@ package ec.edu.uce;
 
 import java.math.BigDecimal;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -39,6 +41,7 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 	@Autowired
 	private IBalonService balon;
 	
+	private static final Logger LOG= LoggerFactory.getLogger(ProyectoSpringJpaPaApplication.class);
 	
 	
 	public static void main(String[] args) {
@@ -429,29 +432,61 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		
 		
 //		Buscar
-		Balon bBuscarMarca = this.balon.buscarMarca("Adidas");
-		System.out.println(bBuscarMarca);
-		
-		Esfero eBuscarColor =this.esfero.buscarColor("Azul");
-		System.out.println(eBuscarColor);
-		
-		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltaje(100);
-		System.out.println(fBuscarVoltaje);
-		
-		GotasOjo gBuscarVolumen = this.gotas.buscarVolumen(9);
-		System.out.println(gBuscarVolumen);
-		
-		Skate sBuscarPrecio = this.skate.buscarPrecio(new BigDecimal("30"));
-		System.out.println(sBuscarPrecio);
+//		Balon bBuscarMarca = this.balon.buscarMarca("Adidas");
+//		System.out.println(bBuscarMarca);
+//		
+//		Esfero eBuscarColor =this.esfero.buscarColor("Azul");
+//		System.out.println(eBuscarColor);
+//		
+//		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltaje(100);
+//		System.out.println(fBuscarVoltaje);
+//		
+//		GotasOjo gBuscarVolumen = this.gotas.buscarVolumen(9);
+//		System.out.println(gBuscarVolumen);
+//		
+//		Skate sBuscarPrecio = this.skate.buscarPrecio(new BigDecimal("30"));
+//		System.out.println(sBuscarPrecio);
 		
 //		Borrar
 		
-		this.balon.eliminar(4);
-		this.esfero.eliminar(5);
-		this.fuente.eliminar(4);
-		this.gotas.eliminar(5);
-		this.skate.eliminar(4);
+//		this.balon.eliminar(4);
+//		this.esfero.eliminar(5);
+//		this.fuente.eliminar(4);
+//		this.gotas.eliminar(5);
+//		this.skate.eliminar(4);
 		
+//		Tarea 11 : Typed & Named Queries
+		
+		Balon bBuscarMarca = this.balon.buscarMarcaNamed("Adidas");
+		System.out.println(bBuscarMarca);
+		
+		Esfero eBuscarColor =this.esfero.buscarColorNamed("Azul");
+		System.out.println(eBuscarColor);
+		
+		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltajeNamed(100);
+		System.out.println(fBuscarVoltaje);
+		
+		GotasOjo gBuscarVolumen = this.gotas.buscarVolumenNamed(9);
+		System.out.println(gBuscarVolumen);
+		
+		Skate sBuscarPrecio = this.skate.buscarPrecioNamed(new BigDecimal("30"));
+		System.out.println(sBuscarPrecio);
+		
+		
+		Balon bBuscarMarcaT = this.balon.buscarMarcaTyped("Adidas");
+		System.out.println(bBuscarMarcaT);
+		
+		Esfero eBuscarColorT =this.esfero.buscarColorTyped("Azul");
+		System.out.println(eBuscarColorT);
+		
+		FuentePoder fBuscarVoltajeT = this.fuente.buscarVoltajeTyped(100);
+		System.out.println(fBuscarVoltajeT);
+		
+		GotasOjo gBuscarVolumenT = this.gotas.buscarVolumenTyped(9);
+		System.out.println(gBuscarVolumenT);
+		
+		Skate sBuscarPrecioT = this.skate.buscarPrecioTyped(new BigDecimal("30"));
+		System.out.println(sBuscarPrecioT);
 		
 
 	}

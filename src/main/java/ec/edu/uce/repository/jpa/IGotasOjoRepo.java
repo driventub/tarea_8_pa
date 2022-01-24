@@ -12,5 +12,7 @@ public interface IGotasOjoRepo {
 	void borrarGotasOjoPorId(Integer id);
 	
 	GotasOjo buscarGotasOjoPorVolumen(Integer v);
+	GotasOjo buscarGotasOjoPorVolumenTyped(Integer v);
+	GotasOjo buscarGotasOjoPorVolumenNamed(Integer v);
 
 }
