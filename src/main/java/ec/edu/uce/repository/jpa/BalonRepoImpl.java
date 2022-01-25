@@ -73,6 +73,14 @@ public class BalonRepoImpl implements IBalonRepo{
 		
 		return (Balon) miQuery.getSingleResult();
 	}
+
+	@Override
+	public Balon buscarBalonPorMarcaNative(String marca) {
+		Query m = this.e.createNativeQuery("select * from balon g where g.marca=:valor",Balon.class);
+		m.setParameter("valor",marca);
+		
+		return (Balon) m.getSingleResult();
+	}
 	
 	
 }

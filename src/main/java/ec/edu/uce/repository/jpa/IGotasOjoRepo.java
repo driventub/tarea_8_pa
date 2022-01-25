@@ -13,6 +13,7 @@ public interface IGotasOjoRepo {
 	
 	GotasOjo buscarGotasOjoPorVolumen(Integer v);
 	GotasOjo buscarGotasOjoPorVolumenTyped(Integer v);
+	GotasOjo buscarGotasOjoPorVolumenNative(Integer v);
 	GotasOjo buscarGotasOjoPorVolumenNamed(Integer v);
 
 }

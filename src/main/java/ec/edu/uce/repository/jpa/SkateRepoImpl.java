@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-
+import ec.edu.uce.modelo.jpa.Esfero;
 import ec.edu.uce.modelo.jpa.Skate;
 
 @Repository
@@ -70,6 +70,16 @@ public class SkateRepoImpl implements ISkateRepo {
 
 		return (Skate) miQuery.getSingleResult();
 
+	}
+
+	@Override
+	public Skate buscarSkatePorPrecioNative(BigDecimal b) {
+		Query miQuery = this.e.createNativeQuery("SELECT * FROM skate g WHERE g.precio<:valor", Skate.class);
+		miQuery.setParameter("valor",b);
+		
+		
+		return (Skate) miQuery.getSingleResult();
+		
 	}
 
 }

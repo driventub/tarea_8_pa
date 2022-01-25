@@ -53,6 +53,11 @@ public class SkateServiceImpl implements ISkateService{
 	public Skate buscarPrecioNamed(BigDecimal precio) {
 		return this.b.buscarSkatePorPrecioNamed(precio);
 	}
+
+	@Override
+	public Skate buscarPrecioNative(BigDecimal precio) {
+		return this.b.buscarSkatePorPrecioNative(precio);
+	}
 	
 
 }

@@ -10,4 +10,5 @@ public interface IFuentePoderService {
 	FuentePoder buscarVoltaje(Integer i);
 	FuentePoder buscarVoltajeTyped(Integer i);
 	FuentePoder buscarVoltajeNamed(Integer i);
+	FuentePoder buscarVoltajeNative(Integer i);
 }

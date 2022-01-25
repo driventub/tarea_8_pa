@@ -10,4 +10,5 @@ public interface IGotasOjoService {
 	GotasOjo buscarVolumen(Integer i);
 	GotasOjo buscarVolumenTyped(Integer i);
 	GotasOjo buscarVolumenNamed(Integer i);
+	GotasOjo buscarVolumenNative(Integer i);
 }

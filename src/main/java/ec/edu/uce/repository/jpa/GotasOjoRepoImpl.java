@@ -67,6 +67,15 @@ public class GotasOjoRepoImpl implements IGotasOjoRepo{
 		
 		return (GotasOjo) miQuery.getSingleResult();
 	}
+
+	@Override
+	public GotasOjo buscarGotasOjoPorVolumenNative(Integer v) {
+		Query miQuery = this.e.createNativeQuery("SELECT * FROM gotas_ojo g WHERE g.volumen=:valor", GotasOjo.class);
+		miQuery.setParameter("valor",v);
+		
+		
+		return (GotasOjo) miQuery.getSingleResult();
+	}
 	
 	
 

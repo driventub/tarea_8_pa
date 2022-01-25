@@ -457,37 +457,54 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner{
 		
 //		Tarea 11 : Typed & Named Queries
 		
-		Balon bBuscarMarca = this.balon.buscarMarcaNamed("Adidas");
-		System.out.println(bBuscarMarca);
-		
-		Esfero eBuscarColor =this.esfero.buscarColorNamed("Azul");
-		System.out.println(eBuscarColor);
-		
-		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltajeNamed(100);
-		System.out.println(fBuscarVoltaje);
-		
-		GotasOjo gBuscarVolumen = this.gotas.buscarVolumenNamed(9);
-		System.out.println(gBuscarVolumen);
-		
-		Skate sBuscarPrecio = this.skate.buscarPrecioNamed(new BigDecimal("30"));
-		System.out.println(sBuscarPrecio);
-		
-		
-		Balon bBuscarMarcaT = this.balon.buscarMarcaTyped("Adidas");
-		System.out.println(bBuscarMarcaT);
-		
-		Esfero eBuscarColorT =this.esfero.buscarColorTyped("Azul");
-		System.out.println(eBuscarColorT);
-		
-		FuentePoder fBuscarVoltajeT = this.fuente.buscarVoltajeTyped(100);
-		System.out.println(fBuscarVoltajeT);
-		
-		GotasOjo gBuscarVolumenT = this.gotas.buscarVolumenTyped(9);
-		System.out.println(gBuscarVolumenT);
+//		Balon bBuscarMarca = this.balon.buscarMarcaNamed("Adidas");
+//		System.out.println(bBuscarMarca);
+//		
+//		Esfero eBuscarColor =this.esfero.buscarColorNamed("Azul");
+//		System.out.println(eBuscarColor);
+//		
+//		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltajeNamed(100);
+//		System.out.println(fBuscarVoltaje);
+//		
+//		GotasOjo gBuscarVolumen = this.gotas.buscarVolumenNamed(9);
+//		System.out.println(gBuscarVolumen);
+//		
+//		Skate sBuscarPrecio = this.skate.buscarPrecioNamed(new BigDecimal("30"));
+//		System.out.println(sBuscarPrecio);
+//		
+//		
+//		Balon bBuscarMarcaT = this.balon.buscarMarcaTyped("Adidas");
+//		System.out.println(bBuscarMarcaT);
+//		
+//		Esfero eBuscarColorT =this.esfero.buscarColorTyped("Azul");
+//		System.out.println(eBuscarColorT);
+//		
+//		FuentePoder fBuscarVoltajeT = this.fuente.buscarVoltajeTyped(100);
+//		System.out.println(fBuscarVoltajeT);
+//		
+//		GotasOjo gBuscarVolumenT = this.gotas.buscarVolumenTyped(9);
+//		System.out.println(gBuscarVolumenT);
 		
 		Skate sBuscarPrecioT = this.skate.buscarPrecioTyped(new BigDecimal("30"));
 		System.out.println(sBuscarPrecioT);
 		
+//		Tarea_12 : Native Query
+		
+		
+		Balon bBuscarMarca = this.balon.buscarMarcaNative("Adidas");
+		LOG.info(bBuscarMarca.toString());
+		
+		Esfero eBuscarColor =this.esfero.buscarColorNative("Azul");
+		LOG.info(eBuscarColor.toString());
+		
+		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltajeNative(100);
+		LOG.info(fBuscarVoltaje.toString());
+		
+		GotasOjo gBuscarVolumen = this.gotas.buscarVolumenNative(9);
+		LOG.info(gBuscarVolumen.toString());
+		
+		Skate sBuscarPrecio = this.skate.buscarPrecioNative(new BigDecimal("30"));
+		LOG.info(sBuscarPrecio.toString());
 
 	}
 

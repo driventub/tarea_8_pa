@@ -10,4 +10,5 @@ public interface IEsferoService {
 	Esfero buscarColor(String color);
 	Esfero buscarColorTyped(String color);
 	Esfero buscarColorNamed(String color);
+	Esfero buscarColorNative(String color);
 }

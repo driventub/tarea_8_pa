@@ -10,4 +10,5 @@ public interface IBalonService {
 	Balon buscarMarca(String marca);
 	Balon buscarMarcaTyped(String marca);
 	Balon buscarMarcaNamed(String marca);
+	Balon buscarMarcaNative(String marca);
 }

@@ -13,6 +13,7 @@ public interface IFuentePoderRepo {
 	
 	FuentePoder buscarFuentePoderPorVoltaje(Integer voltaje);
 	FuentePoder buscarFuentePoderPorVoltajeTyped(Integer voltaje);
+	FuentePoder buscarFuentePoderPorVoltajeNative(Integer voltaje);
 	FuentePoder buscarFuentePoderPorVoltajeNamed(Integer voltaje);
 
 }

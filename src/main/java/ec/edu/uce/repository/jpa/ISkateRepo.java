@@ -17,6 +17,7 @@ public interface ISkateRepo {
 	Skate buscarSkatePorPrecio(BigDecimal b);
 	Skate buscarSkatePorPrecioTyped(BigDecimal b);
 	Skate buscarSkatePorPrecioNamed(BigDecimal b);
+	Skate buscarSkatePorPrecioNative(BigDecimal b);
 	
 
 }

@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-
+import ec.edu.uce.modelo.jpa.Esfero;
 import ec.edu.uce.modelo.jpa.FuentePoder;
 
 
@@ -69,4 +69,14 @@ public class FuentePoderRepoImpl implements IFuentePoderRepo{
 		return (FuentePoder) miQuery.getSingleResult();
 	}
 
+	@Override
+	public FuentePoder buscarFuentePoderPorVoltajeNative(Integer voltaje) {
+		Query miQuery = this.e.createNativeQuery("SELECT * FROM fuente_poder g WHERE g.voltaje<:valor", FuentePoder.class);
+		miQuery.setParameter("valor",voltaje);
+		
+		
+		return (FuentePoder) miQuery.getSingleResult();
+	}
+
+	
 }

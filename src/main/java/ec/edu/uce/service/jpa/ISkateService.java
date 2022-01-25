@@ -12,4 +12,5 @@ public interface ISkateService {
 	Skate buscarPrecio(BigDecimal precio);
 	Skate buscarPrecioTyped(BigDecimal precio);
 	Skate buscarPrecioNamed(BigDecimal precio);
+	Skate buscarPrecioNative(BigDecimal precio);
 }

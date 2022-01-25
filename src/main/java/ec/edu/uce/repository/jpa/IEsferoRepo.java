@@ -14,4 +14,5 @@ public interface IEsferoRepo {
 	Esfero buscarEsferoPorColor(String color);
 	Esfero buscarEsferoPorColorTyped(String color);
 	Esfero buscarEsferoPorColorNamed(String color);
+	Esfero buscarEsferoPorColorNative(String color);
 }

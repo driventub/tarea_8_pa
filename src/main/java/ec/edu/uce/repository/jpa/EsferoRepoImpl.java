@@ -12,6 +12,7 @@ import ec.edu.uce.modelo.jpa.Esfero;
 
 
 
+
 @Repository
 @Transactional
 public class EsferoRepoImpl implements IEsferoRepo{
@@ -65,6 +66,15 @@ public class EsferoRepoImpl implements IEsferoRepo{
 	public Esfero buscarEsferoPorColorNamed(String color) {
 		Query miQuery = this.e.createNamedQuery("Esfero.buscarPorColor");
 		miQuery.setParameter("valor",color);
+		
+		return (Esfero) miQuery.getSingleResult();
+	}
+
+	@Override
+	public Esfero buscarEsferoPorColorNative(String color) {
+		Query miQuery = this.e.createNativeQuery("SELECT * FROM esfero g WHERE g.color=:valor", Esfero.class);
+		miQuery.setParameter("valor",color);
+		
 		
 		return (Esfero) miQuery.getSingleResult();
 	}
