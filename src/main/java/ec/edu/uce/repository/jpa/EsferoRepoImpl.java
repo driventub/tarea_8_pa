@@ -4,10 +4,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import ec.edu.uce.modelo.jpa.Esfero;
 import ec.edu.uce.modelo.jpa.Esfero;
 
 
@@ -77,6 +82,25 @@ public class EsferoRepoImpl implements IEsferoRepo{
 		
 		
 		return (Esfero) miQuery.getSingleResult();
+	}
+
+	@Override
+	public Esfero buscarEsferoPorColorCriteriaApi(String color) {
+		CriteriaBuilder myCriteria = this.e.getCriteriaBuilder();
+
+		CriteriaQuery<Esfero> myQuery = myCriteria.createQuery(Esfero.class);
+
+		Root<Esfero> myTable = myQuery.from(Esfero.class);
+
+		Predicate p1 = myCriteria.equal(myTable.get("color"), color);
+		
+		
+
+		myQuery.select(myTable).where(p1);
+
+		TypedQuery<Esfero> typedQuery = this.e.createQuery(myQuery);
+
+		return typedQuery.getSingleResult();
 	}
 
 }

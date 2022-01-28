@@ -10,10 +10,15 @@ public interface IGotasOjoRepo {
 	void actualizarGotasOjoPorId(GotasOjo p);
 
 	void borrarGotasOjoPorId(Integer id);
-	
+
 	GotasOjo buscarGotasOjoPorVolumen(Integer v);
+
 	GotasOjo buscarGotasOjoPorVolumenTyped(Integer v);
+
 	GotasOjo buscarGotasOjoPorVolumenNative(Integer v);
+
 	GotasOjo buscarGotasOjoPorVolumenNamed(Integer v);
+
+	GotasOjo buscarGotasOjoPorVolumenCriteriaApi(Integer v);
 
 }

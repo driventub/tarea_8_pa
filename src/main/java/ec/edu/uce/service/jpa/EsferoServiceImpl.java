@@ -58,6 +58,11 @@ public class EsferoServiceImpl implements IEsferoService {
 	public Esfero buscarColorNative(String color) {
 		return this.b.buscarEsferoPorColorNative(color);
 	}
+
+	@Override
+	public Esfero buscarColorCriteriaAPI(String color) {
+		return this.b.buscarEsferoPorColorCriteriaApi(color);
+	}
 	
 
 }

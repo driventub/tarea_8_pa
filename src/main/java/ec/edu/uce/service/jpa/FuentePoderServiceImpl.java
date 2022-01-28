@@ -58,5 +58,10 @@ public class FuentePoderServiceImpl implements IFuentePoderService{
 	public FuentePoder buscarVoltajeNative(Integer i) {
 		return this.b.buscarFuentePoderPorVoltajeNative(i);
 	}
+
+	@Override
+	public FuentePoder buscarVoltajeCriteraAPI(Integer i) {
+		return this.b.buscarFuentePoderPorVoltajeCriteriaApi(i);
+	}
 	
 }

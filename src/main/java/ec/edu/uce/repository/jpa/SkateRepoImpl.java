@@ -6,10 +6,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import ec.edu.uce.modelo.jpa.Skate;
 import ec.edu.uce.modelo.jpa.Esfero;
 import ec.edu.uce.modelo.jpa.Skate;
 
@@ -80,6 +85,25 @@ public class SkateRepoImpl implements ISkateRepo {
 		
 		return (Skate) miQuery.getSingleResult();
 		
+	}
+
+	@Override
+	public Skate buscarSkatePorPrecioCriteriaApi(BigDecimal b) {
+		CriteriaBuilder myCriteria = this.e.getCriteriaBuilder();
+
+		CriteriaQuery<Skate> myQuery = myCriteria.createQuery(Skate.class);
+
+		Root<Skate> myTable = myQuery.from(Skate.class);
+
+		Predicate p1 = myCriteria.lessThan(myTable.get("precio"), b);
+		
+		
+
+		myQuery.select(myTable).where(p1);
+
+		TypedQuery<Skate> typedQuery = this.e.createQuery(myQuery);
+
+		return typedQuery.getSingleResult();
 	}
 
 }

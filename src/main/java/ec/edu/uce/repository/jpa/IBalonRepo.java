@@ -20,4 +20,6 @@ public interface IBalonRepo {
 
 	Balon buscarBalonPorMarcaNative(String marca);
 
+	Balon buscarBalonPorMarcaCriteriaApi(String marca);
+
 }

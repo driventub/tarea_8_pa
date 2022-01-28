@@ -12,7 +12,12 @@ public interface IEsferoRepo {
 	void borrarEsferoPorId(Integer id);
 
 	Esfero buscarEsferoPorColor(String color);
+
 	Esfero buscarEsferoPorColorTyped(String color);
+
 	Esfero buscarEsferoPorColorNamed(String color);
+
 	Esfero buscarEsferoPorColorNative(String color);
+
+	Esfero buscarEsferoPorColorCriteriaApi(String color);
 }

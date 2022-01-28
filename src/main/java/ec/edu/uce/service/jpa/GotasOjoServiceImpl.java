@@ -58,6 +58,11 @@ public class GotasOjoServiceImpl implements IGotasOjoService{
 	public GotasOjo buscarVolumenNative(Integer i) {
 		return this.b.buscarGotasOjoPorVolumenNative(i); 
 	}
+
+	@Override
+	public GotasOjo buscarVolumenCriteriaAPI(Integer i) {
+		return this.b.buscarGotasOjoPorVolumenCriteriaApi(i);
+	}
 	
 
 }

@@ -56,5 +56,10 @@ public class BalonServiceImpl implements IBalonService{
 	public Balon buscarMarcaNative(String marca) {
 		return this.b.buscarBalonPorMarcaNative(marca);
 	}
+
+	@Override
+	public Balon buscarMarcaCriteriaAPI(String marca) {
+		return this.b.buscarBalonPorMarcaCriteriaApi(marca);
+	}
 	
 }

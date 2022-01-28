@@ -4,10 +4,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import ec.edu.uce.modelo.jpa.GotasOjo;
 import ec.edu.uce.modelo.jpa.Esfero;
 import ec.edu.uce.modelo.jpa.GotasOjo;
 
@@ -75,6 +80,25 @@ public class GotasOjoRepoImpl implements IGotasOjoRepo{
 		
 		
 		return (GotasOjo) miQuery.getSingleResult();
+	}
+
+	@Override
+	public GotasOjo buscarGotasOjoPorVolumenCriteriaApi(Integer v) {
+		CriteriaBuilder myCriteria = this.e.getCriteriaBuilder();
+
+		CriteriaQuery<GotasOjo> myQuery = myCriteria.createQuery(GotasOjo.class);
+
+		Root<GotasOjo> myTable = myQuery.from(GotasOjo.class);
+
+		Predicate p1 = myCriteria.equal(myTable.get("volumen"), v);
+		
+		
+
+		myQuery.select(myTable).where(p1);
+
+		TypedQuery<GotasOjo> typedQuery = this.e.createQuery(myQuery);
+
+		return typedQuery.getSingleResult();
 	}
 	
 	

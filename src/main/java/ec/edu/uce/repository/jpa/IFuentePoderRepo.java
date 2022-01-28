@@ -10,10 +10,15 @@ public interface IFuentePoderRepo {
 	void actualizarFuentePoderPorId(FuentePoder p);
 
 	void borrarFuentePoderPorId(Integer id);
-	
+
 	FuentePoder buscarFuentePoderPorVoltaje(Integer voltaje);
+
 	FuentePoder buscarFuentePoderPorVoltajeTyped(Integer voltaje);
+
 	FuentePoder buscarFuentePoderPorVoltajeNative(Integer voltaje);
+
 	FuentePoder buscarFuentePoderPorVoltajeNamed(Integer voltaje);
+
+	FuentePoder buscarFuentePoderPorVoltajeCriteriaApi(Integer voltaje);
 
 }
