@@ -1,6 +1,8 @@
 package ec.edu.uce;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,36 +11,39 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ec.edu.uce.modelo.jpa.Balon;
-import ec.edu.uce.modelo.jpa.Esfero;
-import ec.edu.uce.modelo.jpa.FuentePoder;
-import ec.edu.uce.modelo.jpa.GotasOjo;
-import ec.edu.uce.modelo.jpa.Skate;
-import ec.edu.uce.service.jpa.IBalonService;
-import ec.edu.uce.service.jpa.IEsferoService;
-import ec.edu.uce.service.jpa.IFuentePoderService;
-import ec.edu.uce.service.jpa.IGotasOjoService;
-import ec.edu.uce.service.jpa.ISkateService;
+import ec.edu.uce.modelo.jpa.Ciudad;
+import ec.edu.uce.modelo.jpa.NutricionPapa;
+import ec.edu.uce.modelo.jpa.Pais;
+import ec.edu.uce.modelo.jpa.Papa;
+import ec.edu.uce.service.jpa.IPaisService;
+import ec.edu.uce.service.jpa.IPapaService;
 
 @SpringBootApplication
 
 public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 
-	@Autowired
-	private IFuentePoderService fuente;
+//	@Autowired
+//	private IFuentePoderService fuente;
+//
+//	@Autowired
+//	private IGotasOjoService gotas;
+//
+//	@Autowired
+//	private ISkateService skate;
+//
+//	@Autowired
+//	private IEsferoService esfero;
+//
+//	@Autowired
+//	private IBalonService balon;
 
 	@Autowired
-	private IGotasOjoService gotas;
-
+	private IPapaService papa;
+	
 	@Autowired
-	private ISkateService skate;
-
-	@Autowired
-	private IEsferoService esfero;
-
-	@Autowired
-	private IBalonService balon;
-
+	private IPaisService pais;
+	
+	
 	private static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaPaApplication.class);
 
 	public static void main(String[] args) {
@@ -225,11 +230,11 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 
 //		Tarea_10
 
-		Balon b = new Balon();
-		Esfero e = new Esfero();
-		FuentePoder f = new FuentePoder();
-		GotasOjo g = new GotasOjo();
-		Skate s = new Skate();
+//		Balon b = new Balon();
+//		Esfero e = new Esfero();
+//		FuentePoder f = new FuentePoder();
+//		GotasOjo g = new GotasOjo();
+//		Skate s = new Skate();
 
 //		Insercion		
 //		b.setMarca("Nike");
@@ -353,8 +358,8 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //		GotasOjo gBuscarVolumenT = this.gotas.buscarVolumenTyped(9);
 //		System.out.println(gBuscarVolumenT);
 
-		Skate sBuscarPrecioT = this.skate.buscarPrecioTyped(new BigDecimal("30"));
-		System.out.println(sBuscarPrecioT);
+//		Skate sBuscarPrecioT = this.skate.buscarPrecioTyped(new BigDecimal("30"));
+//		System.out.println(sBuscarPrecioT);
 
 //		Tarea_13 : Native Query
 
@@ -376,22 +381,142 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 
 //		Tarea_14: CriteriaAPI
 
-		Balon bBuscarMarca = this.balon.buscarMarcaCriteriaAPI("Adidas");
-		LOG.info("(Criteria API) + " + bBuscarMarca.toString());
+//		Balon bBuscarMarca = this.balon.buscarMarcaCriteriaAPI("Adidas");
+//		LOG.info("(Criteria API) + " + bBuscarMarca.toString());
+//
+//		Esfero eBuscarColor = this.esfero.buscarColorCriteriaAPI("Azul");
+//		LOG.info("(Criteria API) + " +eBuscarColor.toString());
+//
+//		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltajeCriteraAPI(100);
+//
+//		LOG.info("(Criteria API) + " + fBuscarVoltaje.toString());
+//
+//		GotasOjo gBuscarVolumen = this.gotas.buscarVolumenCriteriaAPI(9);
+//		LOG.info("(Criteria API) + " + gBuscarVolumen.toString());
+//
+//		Skate sBuscarPrecio = this.skate.buscarPrecioCriteriaAPI(new BigDecimal("30"));
+//		LOG.info("(Criteria API) + " + sBuscarPrecio.toString());
 
-		Esfero eBuscarColor = this.esfero.buscarColorCriteriaAPI("Azul");
-		LOG.info("(Criteria API) + " +eBuscarColor.toString());
+//		Tarea_15: Tablas relacionales
+		
+		
+		Pais ingl = new Pais();
+		Pais ec = new Pais();
+		Papa pringles= new Papa();
+		Papa ruffles= new Papa();
+		List<NutricionPapa> nutrPringles = new ArrayList<>();
+		List<NutricionPapa> nutrRuffles = new ArrayList<>();
+		
+		List<Ciudad> ciudadIngl = new ArrayList<>();
+		List<Ciudad> ciudadEc = new ArrayList<>();
+		NutricionPapa n1 = new NutricionPapa();
+		NutricionPapa n2 = new NutricionPapa();
+		NutricionPapa n3 = new NutricionPapa();
+		NutricionPapa n4 = new NutricionPapa();
+	
+		
+		Ciudad c1 = new Ciudad(); 
+		Ciudad c2 = new Ciudad(); 
+		Ciudad c3 = new Ciudad(); 
+		Ciudad c4 = new Ciudad(); 
+		Ciudad c5 = new Ciudad(); 
+		Ciudad c6 = new Ciudad(); 
 
-		FuentePoder fBuscarVoltaje = this.fuente.buscarVoltajeCriteraAPI(100);
+//		Contruccion primer pais
+		ingl.setNombre("Inglaterra");
+		ingl.setPoblacion(5598000);
+		ingl.setTamanho(new BigDecimal("130279.00"));
+		
+		c1.setNombre("Croyton");
+		c2.setNombre("Londres");
+		c3.setNombre("Manchester");
+		c1.setPais(ingl);
+		c2.setPais(ingl);
+		c3.setPais(ingl);
+		
+		
+		ciudadIngl.add(c1);
+		ciudadIngl.add(c2);
+		ciudadIngl.add(c3);
+		
+		ingl.setCiudad(ciudadIngl);
+		
+		this.pais.guardar(ingl);
+		
 
-		LOG.info("(Criteria API) + " + fBuscarVoltaje.toString());
-
-		GotasOjo gBuscarVolumen = this.gotas.buscarVolumenCriteriaAPI(9);
-		LOG.info("(Criteria API) + " + gBuscarVolumen.toString());
-
-		Skate sBuscarPrecio = this.skate.buscarPrecioCriteriaAPI(new BigDecimal("30"));
-		LOG.info("(Criteria API) + " + sBuscarPrecio.toString());
-
+//		Contruccion segundo pais
+		ec.setNombre("Ecuador");
+		ec.setPoblacion(17715822);
+		ec.setTamanho(new BigDecimal("283581.00"));
+		
+		
+		c4.setNombre("Quito");
+		c5.setNombre("Cuenca");
+		c6.setNombre("Loja");
+		c4.setPais(ec);
+		c5.setPais(ec);
+		c6.setPais(ec);
+		
+		
+		
+		ciudadEc.add(c4);
+		ciudadEc.add(c5);
+		ciudadEc.add(c6);
+		
+		ec.setCiudad(ciudadEc);
+		
+		this.pais.guardar(ec);
+		
+		
+//		Construccion primera papa
+		
+		pringles.setMarca("Pringles");
+		pringles.setPrecio(new BigDecimal("3.50"));
+		pringles.setSabor("Cebolla");
+		pringles.setPeso(new BigDecimal("71.00"));
+		
+		
+		n1.setNombre("Grasa Total");
+		n1.setCantidad(new BigDecimal("22.0"));
+		n1.setPorcentaje(28);
+		n2.setNombre("Sodio");
+		n2.setCantidad(new BigDecimal("0.45"));
+		n2.setPorcentaje(18);
+		
+		n1.setPapa(pringles);
+		n2.setPapa(pringles);
+		
+		nutrPringles.add(n1);
+		nutrPringles.add(n2);
+		
+		pringles.setNutricion(nutrPringles);
+		
+		this.papa.guardar(pringles);
+		
+//		Construccion segunda papa
+		
+		ruffles.setMarca("Ruffles");
+		ruffles.setPrecio(new BigDecimal("2.75"));
+		ruffles.setSabor("Natural");
+		ruffles.setPeso(new BigDecimal("60.00"));
+		
+		
+		n3.setNombre("Grasa Total");
+		n3.setCantidad(new BigDecimal("20.0"));
+		n3.setPorcentaje(30);
+		n4.setNombre("Sodio");
+		n4.setCantidad(new BigDecimal("0.65"));
+		n4.setPorcentaje(22);
+		
+		n3.setPapa(ruffles);
+		n4.setPapa(ruffles);
+		
+		nutrRuffles.add(n3);
+		nutrRuffles.add(n4);
+		
+		ruffles.setNutricion(nutrRuffles);
+		
+		this.papa.guardar(ruffles);
 	}
 
 }
