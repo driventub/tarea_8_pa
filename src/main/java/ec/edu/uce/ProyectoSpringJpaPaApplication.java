@@ -1,8 +1,7 @@
 package ec.edu.uce;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.Month;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,12 +10,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ec.edu.uce.modelo.jpa.Ciudad;
-import ec.edu.uce.modelo.jpa.NutricionPapa;
-import ec.edu.uce.modelo.jpa.Pais;
-import ec.edu.uce.modelo.jpa.Papa;
-import ec.edu.uce.service.jpa.IPaisService;
-import ec.edu.uce.service.jpa.IPapaService;
+import ec.edu.uce.modelo.jpa.Capital;
+import ec.edu.uce.modelo.jpa.Pasaporte;
+import ec.edu.uce.modelo.jpa.Persona;
+import ec.edu.uce.modelo.jpa.Provincia;
+import ec.edu.uce.service.jpa.IPersonaService;
+import ec.edu.uce.service.jpa.IProvinciaService;
 
 @SpringBootApplication
 
@@ -37,12 +36,17 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //	@Autowired
 //	private IBalonService balon;
 
-	@Autowired
-	private IPapaService papa;
+//	@Autowired
+//	private IPapaService papa;
+//	
+//	@Autowired
+//	private IPaisService pais;
 	
 	@Autowired
-	private IPaisService pais;
+	private IPersonaService persona;
 	
+	@Autowired
+	private IProvinciaService provincia;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaPaApplication.class);
 
@@ -399,124 +403,189 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 
 //		Tarea_15: Tablas relacionales
 		
-		
-		Pais ingl = new Pais();
-		Pais ec = new Pais();
-		Papa pringles= new Papa();
-		Papa ruffles= new Papa();
-		List<NutricionPapa> nutrPringles = new ArrayList<>();
-		List<NutricionPapa> nutrRuffles = new ArrayList<>();
-		
-		List<Ciudad> ciudadIngl = new ArrayList<>();
-		List<Ciudad> ciudadEc = new ArrayList<>();
-		NutricionPapa n1 = new NutricionPapa();
-		NutricionPapa n2 = new NutricionPapa();
-		NutricionPapa n3 = new NutricionPapa();
-		NutricionPapa n4 = new NutricionPapa();
-	
-		
-		Ciudad c1 = new Ciudad(); 
-		Ciudad c2 = new Ciudad(); 
-		Ciudad c3 = new Ciudad(); 
-		Ciudad c4 = new Ciudad(); 
-		Ciudad c5 = new Ciudad(); 
-		Ciudad c6 = new Ciudad(); 
-
-//		Contruccion primer pais
-		ingl.setNombre("Inglaterra");
-		ingl.setPoblacion(5598000);
-		ingl.setTamanho(new BigDecimal("130279.00"));
-		
-		c1.setNombre("Croyton");
-		c2.setNombre("Londres");
-		c3.setNombre("Manchester");
-		c1.setPais(ingl);
-		c2.setPais(ingl);
-		c3.setPais(ingl);
-		
-		
-		ciudadIngl.add(c1);
-		ciudadIngl.add(c2);
-		ciudadIngl.add(c3);
-		
-		ingl.setCiudad(ciudadIngl);
-		
-		this.pais.guardar(ingl);
-		
-
-//		Contruccion segundo pais
-		ec.setNombre("Ecuador");
-		ec.setPoblacion(17715822);
-		ec.setTamanho(new BigDecimal("283581.00"));
-		
-		
-		c4.setNombre("Quito");
-		c5.setNombre("Cuenca");
-		c6.setNombre("Loja");
-		c4.setPais(ec);
-		c5.setPais(ec);
-		c6.setPais(ec);
-		
-		
-		
-		ciudadEc.add(c4);
-		ciudadEc.add(c5);
-		ciudadEc.add(c6);
-		
-		ec.setCiudad(ciudadEc);
-		
-		this.pais.guardar(ec);
-		
+//		
+//		Pais ingl = new Pais();
+//		Pais ec = new Pais();
+//		Papa pringles= new Papa();
+//		Papa ruffles= new Papa();
+//		List<NutricionPapa> nutrPringles = new ArrayList<>();
+//		List<NutricionPapa> nutrRuffles = new ArrayList<>();
+//		
+//		List<Ciudad> ciudadIngl = new ArrayList<>();
+//		List<Ciudad> ciudadEc = new ArrayList<>();
+//		NutricionPapa n1 = new NutricionPapa();
+//		NutricionPapa n2 = new NutricionPapa();
+//		NutricionPapa n3 = new NutricionPapa();
+//		NutricionPapa n4 = new NutricionPapa();
+//	
+//		
+//		Ciudad c1 = new Ciudad(); 
+//		Ciudad c2 = new Ciudad(); 
+//		Ciudad c3 = new Ciudad(); 
+//		Ciudad c4 = new Ciudad(); 
+//		Ciudad c5 = new Ciudad(); 
+//		Ciudad c6 = new Ciudad(); 
+//
+////		Contruccion primer pais
+//		ingl.setNombre("Inglaterra");
+//		ingl.setPoblacion(5598000);
+//		ingl.setTamanho(new BigDecimal("130279.00"));
+//		
+//		c1.setNombre("Croyton");
+//		c2.setNombre("Londres");
+//		c3.setNombre("Manchester");
+//		c1.setPais(ingl);
+//		c2.setPais(ingl);
+//		c3.setPais(ingl);
+//		
+//		
+//		ciudadIngl.add(c1);
+//		ciudadIngl.add(c2);
+//		ciudadIngl.add(c3);
+//		
+//		ingl.setCiudad(ciudadIngl);
+//		
+//		this.pais.guardar(ingl);
+//		
+//
+////		Contruccion segundo pais
+//		ec.setNombre("Ecuador");
+//		ec.setPoblacion(17715822);
+//		ec.setTamanho(new BigDecimal("283581.00"));
+//		
+//		
+//		c4.setNombre("Quito");
+//		c5.setNombre("Cuenca");
+//		c6.setNombre("Loja");
+//		c4.setPais(ec);
+//		c5.setPais(ec);
+//		c6.setPais(ec);
+//		
+//		
+//		
+//		ciudadEc.add(c4);
+//		ciudadEc.add(c5);
+//		ciudadEc.add(c6);
+//		
+//		ec.setCiudad(ciudadEc);
+//		
+//		this.pais.guardar(ec);
+//		
 		
 //		Construccion primera papa
 		
-		pringles.setMarca("Pringles");
-		pringles.setPrecio(new BigDecimal("3.50"));
-		pringles.setSabor("Cebolla");
-		pringles.setPeso(new BigDecimal("71.00"));
+//		pringles.setMarca("Pringles");
+//		pringles.setPrecio(new BigDecimal("3.50"));
+//		pringles.setSabor("Cebolla");
+//		pringles.setPeso(new BigDecimal("71.00"));
+//		
+//		
+//		n1.setNombre("Grasa Total");
+//		n1.setCantidad(new BigDecimal("22.0"));
+//		n1.setPorcentaje(28);
+//		n2.setNombre("Sodio");
+//		n2.setCantidad(new BigDecimal("0.45"));
+//		n2.setPorcentaje(18);
+//		
+//		n1.setPapa(pringles);
+//		n2.setPapa(pringles);
+//		
+//		nutrPringles.add(n1);
+//		nutrPringles.add(n2);
+//		
+//		pringles.setNutricion(nutrPringles);
+//		
+//		this.papa.guardar(pringles);
+//		
+////		Construccion segunda papa
+//		
+//		ruffles.setMarca("Ruffles");
+//		ruffles.setPrecio(new BigDecimal("2.75"));
+//		ruffles.setSabor("Natural");
+//		ruffles.setPeso(new BigDecimal("60.00"));
+//		
+//		
+//		n3.setNombre("Grasa Total");
+//		n3.setCantidad(new BigDecimal("20.0"));
+//		n3.setPorcentaje(30);
+//		n4.setNombre("Sodio");
+//		n4.setCantidad(new BigDecimal("0.65"));
+//		n4.setPorcentaje(22);
+//		
+//		n3.setPapa(ruffles);
+//		n4.setPapa(ruffles);
+//		
+//		nutrRuffles.add(n3);
+//		nutrRuffles.add(n4);
+//		
+//		ruffles.setNutricion(nutrRuffles);
+//		
+//		this.papa.guardar(ruffles);
 		
+//		Tarea 16: OneToOne
 		
-		n1.setNombre("Grasa Total");
-		n1.setCantidad(new BigDecimal("22.0"));
-		n1.setPorcentaje(28);
-		n2.setNombre("Sodio");
-		n2.setCantidad(new BigDecimal("0.45"));
-		n2.setPorcentaje(18);
+		Provincia pro1 = new Provincia();
+		Persona per1 = new Persona();
+		Provincia pro2 = new Provincia();
+		Persona per2 = new Persona();
+		Capital cap1 = new Capital();
+		Pasaporte pas1 = new Pasaporte();
+		Capital cap2 = new Capital();
+		Pasaporte pas2 = new Pasaporte();
 		
-		n1.setPapa(pringles);
-		n2.setPapa(pringles);
+//		Provincia 1
 		
-		nutrPringles.add(n1);
-		nutrPringles.add(n2);
+		pro1.setNombre("Azuay");
+		pro1.setRegion("Sierra");
 		
-		pringles.setNutricion(nutrPringles);
+		cap1.setNombre("Cuenca");
+		cap1.setPoblacion(334343);
+		cap1.setProvincia(pro1);
 		
-		this.papa.guardar(pringles);
+		pro1.setCapital(cap1);
 		
-//		Construccion segunda papa
+		this.provincia.guardar(pro1);
 		
-		ruffles.setMarca("Ruffles");
-		ruffles.setPrecio(new BigDecimal("2.75"));
-		ruffles.setSabor("Natural");
-		ruffles.setPeso(new BigDecimal("60.00"));
+//		Provincia 2
 		
+		pro2.setNombre("Pastaza");
+		pro2.setRegion("Oriente");
 		
-		n3.setNombre("Grasa Total");
-		n3.setCantidad(new BigDecimal("20.0"));
-		n3.setPorcentaje(30);
-		n4.setNombre("Sodio");
-		n4.setCantidad(new BigDecimal("0.65"));
-		n4.setPorcentaje(22);
+		cap2.setNombre("Puyo");
+		cap2.setPoblacion(241562);
+		cap2.setProvincia(pro2);
 		
-		n3.setPapa(ruffles);
-		n4.setPapa(ruffles);
+		pro2.setCapital(cap2);
 		
-		nutrRuffles.add(n3);
-		nutrRuffles.add(n4);
+		this.provincia.guardar(pro2);
 		
-		ruffles.setNutricion(nutrRuffles);
+//		Persona 1
 		
-		this.papa.guardar(ruffles);
+		per1.setNombre("Pepito");
+		per1.setEdad(22);
+		
+		pas1.setNumero("123456789-0");
+		LocalDateTime exp = LocalDateTime.of(2023,Month.AUGUST,8,12,45);
+		pas1.setExpiracion(exp);
+		pas1.setPersona(per1);
+		
+		per1.setPasaporte(pas1);
+		
+		this.persona.guardar(per1);
+//		Persona 2
+		
+		per2.setNombre("Anita");
+		per2.setEdad(42);
+		
+		pas2.setNumero("123456783-0");
+		LocalDateTime exp2 = LocalDateTime.of(2026,Month.SEPTEMBER,8,12,45);
+		pas2.setExpiracion(exp2);
+		pas2.setPersona(per2);
+		
+		per2.setPasaporte(pas2);
+		
+		this.persona.guardar(per2);
+		
 	}
 
 }
