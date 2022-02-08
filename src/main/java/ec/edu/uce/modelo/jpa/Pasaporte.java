@@ -64,6 +64,11 @@ public class Pasaporte {
 		this.persona = persona;
 	}
 
+	@Override
+	public String toString() {
+		return "Pasaporte [id=" + id + ", numero=" + numero + ", expiracion=" + expiracion + "]";
+	}
+
 		
 	
 }

@@ -532,59 +532,67 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 		Pasaporte pas1 = new Pasaporte();
 		Capital cap2 = new Capital();
 		Pasaporte pas2 = new Pasaporte();
-		
-//		Provincia 1
-		
-		pro1.setNombre("Azuay");
-		pro1.setRegion("Sierra");
-		
-		cap1.setNombre("Cuenca");
-		cap1.setPoblacion(334343);
-		cap1.setProvincia(pro1);
-		
-		pro1.setCapital(cap1);
-		
-		this.provincia.guardar(pro1);
-		
-//		Provincia 2
-		
-		pro2.setNombre("Pastaza");
-		pro2.setRegion("Oriente");
-		
-		cap2.setNombre("Puyo");
-		cap2.setPoblacion(241562);
-		cap2.setProvincia(pro2);
-		
-		pro2.setCapital(cap2);
-		
-		this.provincia.guardar(pro2);
-		
+//		
+////		Provincia 1
+//		
+//		pro1.setNombre("Azuay");
+//		pro1.setRegion("Sierra");
+//		
+//		cap1.setNombre("Cuenca");
+//		cap1.setPoblacion(334343);
+//		cap1.setProvincia(pro1);
+//		
+//		pro1.setCapital(cap1);
+//		
+//		this.provincia.guardar(pro1);
+//		
+////		Provincia 2
+//		
+//		pro2.setNombre("Pastaza");
+//		pro2.setRegion("Oriente");
+//		
+//		cap2.setNombre("Puyo");
+//		cap2.setPoblacion(241562);
+//		cap2.setProvincia(pro2);
+//		
+//		pro2.setCapital(cap2);
+//		
+//		this.provincia.guardar(pro2);
+//		
 //		Persona 1
 		
-		per1.setNombre("Pepito");
-		per1.setEdad(22);
+//		per1.setNombre("Pepito");
+//		per1.setEdad(22);
+//		
+//		pas1.setNumero("123456789-0");
+//		LocalDateTime exp = LocalDateTime.of(2023,Month.AUGUST,8,12,45);
+//		pas1.setExpiracion(exp);
+//		pas1.setPersona(per1);
+//		
+//		per1.setPasaporte(pas1);
+//		
+//		this.persona.guardar(per1);
+////		Persona 2
+//		
+//		per2.setNombre("Anita");
+//		per2.setEdad(42);
+//		
+//		pas2.setNumero("123456783-0");
+//		LocalDateTime exp2 = LocalDateTime.of(2026,Month.SEPTEMBER,8,12,45);
+//		pas2.setExpiracion(exp2);
+//		pas2.setPersona(per2);
+//		
+//		per2.setPasaporte(pas2);
+//		
+//		this.persona.guardar(per2);
 		
-		pas1.setNumero("123456789-0");
-		LocalDateTime exp = LocalDateTime.of(2023,Month.AUGUST,8,12,45);
-		pas1.setExpiracion(exp);
-		pas1.setPersona(per1);
+//		Tarea 17
 		
-		per1.setPasaporte(pas1);
-		
-		this.persona.guardar(per1);
-//		Persona 2
-		
-		per2.setNombre("Anita");
-		per2.setEdad(42);
-		
-		pas2.setNumero("123456783-0");
-		LocalDateTime exp2 = LocalDateTime.of(2026,Month.SEPTEMBER,8,12,45);
-		pas2.setExpiracion(exp2);
-		pas2.setPersona(per2);
-		
-		per2.setPasaporte(pas2);
-		
-		this.persona.guardar(per2);
+//		Cantidad grande para que me imprima todos los datos
+		this.persona.buscarJOIN(1000);
+		this.persona.buscarLEFT(1000);
+		this.persona.buscarRIGHT(1000);
+		this.persona.buscarWHERE(1000);
 		
 	}
 

@@ -3,6 +3,7 @@ package ec.edu.uce.modelo.jpa;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Persona {
 	@Column(name = "pers_edad")
 	private Integer edad;
 	
-	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "persona",cascade = CascadeType.ALL,  fetch = FetchType.EAGER)
 	private Pasaporte pasaporte;
 
 //	Set y Get
@@ -63,6 +64,11 @@ public class Persona {
 
 	public void setPasaporte(Pasaporte pasaporte) {
 		this.pasaporte = pasaporte;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [id=" + id + ", nombre=" + nombre + ", edad=" + edad + ", pasaporte=" + pasaporte + "]";
 	}
 	
 	
