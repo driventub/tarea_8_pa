@@ -1,7 +1,6 @@
 package ec.edu.uce;
 
-import java.time.LocalDateTime;
-import java.time.Month;
+import java.math.BigDecimal;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +13,9 @@ import ec.edu.uce.modelo.jpa.Capital;
 import ec.edu.uce.modelo.jpa.Pasaporte;
 import ec.edu.uce.modelo.jpa.Persona;
 import ec.edu.uce.modelo.jpa.Provincia;
-import ec.edu.uce.service.jpa.IPersonaService;
-import ec.edu.uce.service.jpa.IProvinciaService;
+import ec.edu.uce.modelo.jpa.TarjetaCredito;
+import ec.edu.uce.service.jpa.ITarjetaCreditoService;
+import ec.edu.uce.service.jpa.ITarjetaCreditoTransaccion;
 
 @SpringBootApplication
 
@@ -42,11 +42,18 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //	@Autowired
 //	private IPaisService pais;
 	
+//	@Autowired
+//	private IPersonaService persona;
+//	
+//	@Autowired
+//	private IProvinciaService provincia;
+	
+//	Unidad 3
 	@Autowired
-	private IPersonaService persona;
+	private ITarjetaCreditoTransaccion transfer;
 	
 	@Autowired
-	private IProvinciaService provincia;
+	private ITarjetaCreditoService tarjetaService;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaPaApplication.class);
 
@@ -586,13 +593,27 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //		
 //		this.persona.guardar(per2);
 		
-//		Tarea 17
+
 		
 //		Cantidad grande para que me imprima todos los datos
-		this.persona.buscarJOIN(1000);
-		this.persona.buscarLEFT(1000);
-		this.persona.buscarRIGHT(1000);
-		this.persona.buscarWHERE(1000);
+//		this.persona.buscarJOIN(1000);
+//		this.persona.buscarLEFT(1000);
+//		this.persona.buscarRIGHT(1000);
+//		this.persona.buscarWHERE(1000);
+		
+//		Tarea 21
+		
+//		Creacion Tarjeta Credito
+		TarjetaCredito t = new TarjetaCredito();
+		t.setNumeroTarjeta("1234678983");
+		t.setCedulaPropietario("1367299050-9");
+		t.setCupo(new BigDecimal("5000.00"));
+		
+//		this.tarjetaService.guardar(t);
+		
+		this.transfer.realizarTransaccion(new BigDecimal("33.41"), t.getNumeroTarjeta());
+		
+		
 		
 	}
 
