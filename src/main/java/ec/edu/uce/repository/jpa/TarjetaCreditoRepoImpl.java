@@ -5,6 +5,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import ec.edu.uce.modelo.jpa.TarjetaCredito;
@@ -12,6 +14,8 @@ import ec.edu.uce.modelo.jpa.TarjetaCredito;
 @Repository
 @Transactional
 public class TarjetaCreditoRepoImpl implements ITarjetaCreditoRepo {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(TarjetaCreditoRepoImpl.class);
 	
 	@PersistenceContext
 	private EntityManager e;
@@ -26,6 +30,11 @@ public class TarjetaCreditoRepoImpl implements ITarjetaCreditoRepo {
 	@Override
 	public void actualizar(TarjetaCredito t) {
 		this.e.merge(t);
+		try {
+			throw new NullPointerException();
+			}catch (NullPointerException e) {
+				LOG.error("Aqui Capture el ERROR");
+			}
 		
 	}
 
