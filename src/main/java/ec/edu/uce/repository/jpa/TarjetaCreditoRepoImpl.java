@@ -30,11 +30,11 @@ public class TarjetaCreditoRepoImpl implements ITarjetaCreditoRepo {
 	@Override
 	public void actualizar(TarjetaCredito t) {
 		this.e.merge(t);
-		try {
+//		try {
 			throw new NullPointerException();
-			}catch (NullPointerException e) {
-				LOG.error("Aqui Capture el ERROR");
-			}
+//			}catch (NullPointerException e) {
+//				LOG.error("Aqui Capture el ERROR");
+//			}
 		
 	}
 

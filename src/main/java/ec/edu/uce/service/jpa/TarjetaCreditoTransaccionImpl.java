@@ -43,7 +43,7 @@ public class TarjetaCreditoTransaccionImpl implements ITarjetaCreditoTransaccion
 		try {
 			this.tarjetaService.actualizar(t);
 		} catch (NullPointerException e) {
-			LOG.info("Capturado en la transaccion");
+			LOG.error("Capturado en la transaccion");
 		}
 
 	}
