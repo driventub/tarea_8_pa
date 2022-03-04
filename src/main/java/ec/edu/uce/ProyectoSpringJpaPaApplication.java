@@ -9,13 +9,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ec.edu.uce.modelo.jpa.Capital;
-import ec.edu.uce.modelo.jpa.Pasaporte;
-import ec.edu.uce.modelo.jpa.Persona;
-import ec.edu.uce.modelo.jpa.Provincia;
-import ec.edu.uce.modelo.jpa.TarjetaCredito;
-import ec.edu.uce.service.jpa.ITarjetaCreditoService;
-import ec.edu.uce.service.jpa.ITarjetaCreditoTransaccion;
+import ec.edu.uce.modelo.jpa.CuentaBancaria;
+import ec.edu.uce.modelo.jpa.CuentaHabiente;
+import ec.edu.uce.service.jpa.ICuentaBancariaService;
+import ec.edu.uce.service.jpa.ICuentaHabienteService;
+import ec.edu.uce.service.jpa.IOperacionesService;
 
 @SpringBootApplication
 
@@ -49,11 +47,20 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //	private IProvinciaService provincia;
 	
 //	Unidad 3
-	@Autowired
-	private ITarjetaCreditoTransaccion transfer;
+//	@Autowired
+//	private ITarjetaCreditoTransaccion transfer;
+	
+//	@Autowired
+//	private ITarjetaCreditoService tarjetaService;
 	
 	@Autowired
-	private ITarjetaCreditoService tarjetaService;
+	private ICuentaBancariaService banc;
+	
+	@Autowired
+	private ICuentaHabienteService habi;
+	
+	@Autowired
+	private IOperacionesService ope;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaPaApplication.class);
 
@@ -531,14 +538,14 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 		
 //		Tarea 16: OneToOne
 		
-		Provincia pro1 = new Provincia();
-		Persona per1 = new Persona();
-		Provincia pro2 = new Provincia();
-		Persona per2 = new Persona();
-		Capital cap1 = new Capital();
-		Pasaporte pas1 = new Pasaporte();
-		Capital cap2 = new Capital();
-		Pasaporte pas2 = new Pasaporte();
+//		Provincia pro1 = new Provincia();
+//		Persona per1 = new Persona();
+//		Provincia pro2 = new Provincia();
+//		Persona per2 = new Persona();
+//		Capital cap1 = new Capital();
+//		Pasaporte pas1 = new Pasaporte();
+//		Capital cap2 = new Capital();
+//		Pasaporte pas2 = new Pasaporte();
 //		
 ////		Provincia 1
 //		
@@ -604,15 +611,51 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //		Tarea 21
 		
 //		Creacion Tarjeta Credito
-		TarjetaCredito t = new TarjetaCredito();
-		t.setNumeroTarjeta("1234678983");
-		t.setCedulaPropietario("1367299050-9");
-		t.setCupo(new BigDecimal("5000.00"));
+//		TarjetaCredito t = new TarjetaCredito();
+//		t.setNumeroTarjeta("1234678983");
+//		t.setCedulaPropietario("1367299050-9");
+//		t.setCupo(new BigDecimal("5000.00"));
 		
 //		this.tarjetaService.guardar(t);
 		
-		this.transfer.realizarTransaccion(new BigDecimal("33.41"), t.getNumeroTarjeta());
+//		this.transfer.realizarTransaccion(new BigDecimal("33.41"), t.getNumeroTarjeta());
+
+//		Tarea 23
+//		Cajero Bancario
 		
+		
+		
+		CuentaBancaria b1 = new CuentaBancaria();
+		CuentaBancaria b2 = new CuentaBancaria();
+		CuentaHabiente h1 = new CuentaHabiente();
+		CuentaHabiente h2 = new CuentaHabiente();
+		
+		h1.setNombre("Manuel");
+		h1.setApellido("Juarez");
+		h1.setCedula("170478569-3");
+		
+		h2.setNombre("Anita");
+		h2.setApellido("Tipan");
+		h2.setCedula("170473269-1");
+		
+		b1.setNumCuenta("3883929-3");
+		b1.setSaldo(new BigDecimal("2000.00"));
+		b1.setTipo("Ahorros");
+		b1.setCuentaHabiente(h1);
+
+		b2.setNumCuenta("4663832-3");
+		b2.setSaldo(new BigDecimal("3888.50"));
+		b2.setTipo("Corriente");
+		b2.setCuentaHabiente(h2);
+		
+//		this.habi.insertarCuentaHabiente(h1);
+//		this.habi.insertarCuentaHabiente(h2);
+//		this.banc.insertarCuentaBancaria(b1);
+//		this.banc.insertarCuentaBancaria(b2);
+		
+		this.banc.buscarPorCedula(h2.getCedula());
+		
+		this.ope.realizarRetiro(b1.getNumCuenta(),new BigDecimal("1.33"));
 		
 		
 	}
