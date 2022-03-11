@@ -1,9 +1,7 @@
 package ec.edu.uce;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,11 +10,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import ec.edu.tarea24.modelo.Cliente;
-import ec.edu.tarea24.modelo.Membresia;
-import ec.edu.tarea24.service.IClienteService;
-import ec.edu.tarea24.service.IGestorService;
-import ec.edu.tarea24.service.IMembresiaService;
+import ec.edu.uce.modelo.jpa.CuentaBancaria;
+import ec.edu.uce.modelo.jpa.CuentaHabiente;
+import ec.edu.uce.service.jpa.ICuentaBancariaService;
+import ec.edu.uce.service.jpa.ICuentaHabienteService;
+import ec.edu.uce.service.jpa.IOperacionesService;
 
 @SpringBootApplication
 
@@ -56,23 +54,23 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //	@Autowired
 //	private ITarjetaCreditoService tarjetaService;
 //	
-//	@Autowired
-//	private ICuentaBancariaService banc;
-//	
-//	@Autowired
-//	private ICuentaHabienteService habi;
-//	
-//	@Autowired
-//	private IOperacionesService ope;
+	@Autowired
+	private ICuentaBancariaService banc;
+	
+	@Autowired
+	private ICuentaHabienteService habi;
+	
+	@Autowired
+	private IOperacionesService ope;
 
 //	@Autowired
 //	private IGestorService gestor;
 	
-	@Autowired
-	private IClienteService cliente;
-	
-	@Autowired
-	private IMembresiaService membresia;
+//	@Autowired
+//	private IClienteService cliente;
+//	
+//	@Autowired
+//	private IMembresiaService membresia;
 	
 	private static final Logger LOG = LoggerFactory.getLogger(ProyectoSpringJpaPaApplication.class);
 
@@ -636,69 +634,47 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //		Cajero Bancario
 		
 		
-//		
-//		CuentaBancaria b1 = new CuentaBancaria();
-//		CuentaBancaria b2 = new CuentaBancaria();
-//		CuentaHabiente h1 = new CuentaHabiente();
-//		CuentaHabiente h2 = new CuentaHabiente();
-//		
-//		h1.setNombre("Manuel");
-//		h1.setApellido("Juarez");
-//		h1.setCedula("170478569-3");
-//		
-//		h2.setNombre("Anita");
-//		h2.setApellido("Tipan");
-//		h2.setCedula("170473269-1");
-//		
-//		b1.setNumCuenta("3883929-3");
-//		b1.setSaldo(new BigDecimal("2000.00"));
-//		b1.setTipo("Ahorros");
-//		b1.setCuentaHabiente(h1);
-//
-//		b2.setNumCuenta("4663832-3");
-//		b2.setSaldo(new BigDecimal("3888.50"));
-//		b2.setTipo("Corriente");
-//		b2.setCuentaHabiente(h2);
-//		
-////		this.habi.insertarCuentaHabiente(h1);
-////		this.habi.insertarCuentaHabiente(h2);
-////		this.banc.insertarCuentaBancaria(b1);
-////		this.banc.insertarCuentaBancaria(b2);
-//		
+		
+		CuentaBancaria b1 = new CuentaBancaria();
+		CuentaBancaria b2 = new CuentaBancaria();
+		CuentaHabiente h1 = new CuentaHabiente();
+		CuentaHabiente h2 = new CuentaHabiente();
+		
+		h1.setNombre("Wilson");
+		h1.setApellido("Garcia");
+		h1.setCedula("173478565-0");
+		
+		h2.setNombre("Lucas");
+		h2.setApellido("Sosa");
+		h2.setCedula("180987269-1");
+		
+		b1.setNumCuenta("1234429-3");
+		b1.setSaldo(new BigDecimal("2000.00"));
+		b1.setTipo("Ahorros");
+		b1.setCuentaHabiente(h1);
+
+		b2.setNumCuenta("7893232-1");
+		b2.setSaldo(new BigDecimal("4.00"));
+		b2.setTipo("Corriente");
+		b2.setCuentaHabiente(h2);
+		
+//		this.habi.insertarCuentaHabiente(h1);
+//		this.habi.insertarCuentaHabiente(h2);
+//		this.banc.insertarCuentaBancaria(b1);
+//		this.banc.insertarCuentaBancaria(b2);
+		
 //		this.banc.buscarPorCedula(h2.getCedula());
-//		
-//		this.ope.realizarRetiro(b1.getNumCuenta(),new BigDecimal("1.33"));
 		
-//		Tarea 24
-		List<Cliente> listaCliente = new ArrayList<>();
-		Cliente c1 = new Cliente();
-		Cliente c2 = new Cliente();
-		Membresia m1 = new Membresia();
+//		this.ope.realizarRetiro(b1.getNumCuenta(),new BigDecimal("20.55"));
+//		this.ope.realizarRetiro(b1.getNumCuenta(),new BigDecimal("20.55"));
+//		this.ope.realizarRetiro(b1.getNumCuenta(),new BigDecimal("20.55"));
+//		this.ope.realizarRetiro(b2.getNumCuenta(),new BigDecimal("20.55"));
+//		this.ope.realizarRetiro(b2.getNumCuenta(),new BigDecimal("0.01"));
 		
-		c1.setNombre("Alonso");
-		c1.setApellido("Smith");
-		c1.setCedula("189753749-3");
-		c1.setFechaNacimiento(LocalDateTime.of(1990,Month.DECEMBER,8,12,45));
-		c1.setEstado("N");
-		
-		c2.setNombre("Alfonsina");
-		c2.setApellido("Smith");
-		c2.setCedula("134553749-3");
-		c2.setFechaNacimiento(LocalDateTime.of(1993,Month.DECEMBER,12,12,45));
-		c2.setEstado("N");
-		
-		listaCliente.add(c1);
-		listaCliente.add(c2);
-		
-//		Pues deberia ser todo lo que tendria, dado que no se tiene
-//		ninguna membresia activa(es decir, pagada)
-		m1.setCodigo("377272");	
-		m1.setCliente(listaCliente);
-		
-		this.cliente.insertarCliente(c1);
-		this.cliente.insertarCliente(c2);
-		
-		this.membresia.insertarMembresia(m1);
+//		Tarea 25
+		this.ope.calcularSaldoLambda(new BigDecimal(5));
+		this.ope.calcularReporteLambda(LocalDateTime.now(),new BigDecimal("2") );
+
 	}
 
 }

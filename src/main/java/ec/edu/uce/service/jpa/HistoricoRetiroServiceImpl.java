@@ -1,11 +1,16 @@
 package ec.edu.uce.service.jpa;
 
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
 import ec.edu.uce.modelo.jpa.HistoricoRetiro;
+import ec.edu.uce.modelo.jpa.ReporteHistoricoRetiro;
 import ec.edu.uce.repository.jpa.IHistoricoRetiroRepo;
 
 @Service
@@ -36,5 +41,10 @@ public class HistoricoRetiroServiceImpl implements IHistoricoRetiroService {
 	public void borrarHistoricoRetiroPorId(Integer id) {
 		this.cuentaBancaria.borrarHistoricoRetiroPorId(id);
 
+	}
+
+	@Override
+	public List<ReporteHistoricoRetiro> buscarReporteHistorico() {
+		return this.cuentaBancaria.buscarReporteHistorico();
 	}
 }
