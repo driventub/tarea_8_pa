@@ -635,28 +635,28 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 		
 		
 		
-		CuentaBancaria b1 = new CuentaBancaria();
-		CuentaBancaria b2 = new CuentaBancaria();
-		CuentaHabiente h1 = new CuentaHabiente();
-		CuentaHabiente h2 = new CuentaHabiente();
-		
-		h1.setNombre("Wilson");
-		h1.setApellido("Garcia");
-		h1.setCedula("173478565-0");
-		
-		h2.setNombre("Lucas");
-		h2.setApellido("Sosa");
-		h2.setCedula("180987269-1");
-		
-		b1.setNumCuenta("1234429-3");
-		b1.setSaldo(new BigDecimal("2000.00"));
-		b1.setTipo("Ahorros");
-		b1.setCuentaHabiente(h1);
-
-		b2.setNumCuenta("7893232-1");
-		b2.setSaldo(new BigDecimal("4.00"));
-		b2.setTipo("Corriente");
-		b2.setCuentaHabiente(h2);
+//		CuentaBancaria b1 = new CuentaBancaria();
+//		CuentaBancaria b2 = new CuentaBancaria();
+//		CuentaHabiente h1 = new CuentaHabiente();
+//		CuentaHabiente h2 = new CuentaHabiente();
+//		
+//		h1.setNombre("Wilson");
+//		h1.setApellido("Garcia");
+//		h1.setCedula("173478565-0");
+//		
+//		h2.setNombre("Lucas");
+//		h2.setApellido("Sosa");
+//		h2.setCedula("180987269-1");
+//		
+//		b1.setNumCuenta("1234429-3");
+//		b1.setSaldo(new BigDecimal("2000.00"));
+//		b1.setTipo("Ahorros");
+//		b1.setCuentaHabiente(h1);
+//
+//		b2.setNumCuenta("7893232-1");
+//		b2.setSaldo(new BigDecimal("4.00"));
+//		b2.setTipo("Corriente");
+//		b2.setCuentaHabiente(h2);
 		
 //		this.habi.insertarCuentaHabiente(h1);
 //		this.habi.insertarCuentaHabiente(h2);
@@ -672,8 +672,8 @@ public class ProyectoSpringJpaPaApplication implements CommandLineRunner {
 //		this.ope.realizarRetiro(b2.getNumCuenta(),new BigDecimal("0.01"));
 		
 //		Tarea 25
-		this.ope.calcularSaldoLambda(new BigDecimal(5));
-		this.ope.calcularReporteLambda(LocalDateTime.now(),new BigDecimal("2") );
+//		this.ope.calcularSaldoLambda(new BigDecimal(5));
+//		this.ope.calcularReporteLambda(LocalDateTime.now(),new BigDecimal("2") );
 
 	}
 
